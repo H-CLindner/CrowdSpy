@@ -1,0 +1,11 @@
+#files to ignore
+
+#npm
+node_modules/
+npm-debug.log
+
+#IDE rubbish
+.idea/
+
+#bower
+app/bower_components

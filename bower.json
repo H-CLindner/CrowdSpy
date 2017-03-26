@@ -1,0 +1,22 @@
+{
+  "name": "bachelorarbeit",
+  "description": "crowdsourcing for crowd-pattern",
+  "main": "app/index.html",
+  "authors": [
+    "Hans-Christian Lindner"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.6.3",
+    "jquery": "^3.2.1",
+    "bootstrap": "^3.3.7"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "name": "bachelorarbeit",
+  "version": "1.0.0",
+  "description": "crowdsourcing for crowd-pattern",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Hans-Christian Lindner",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.15.2"
+  }
+}
