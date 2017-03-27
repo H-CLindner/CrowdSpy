@@ -8,6 +8,7 @@ var routesApi = require('./api/routes/index');
 
 var app = express();
 
+app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 //  Set the app_client folder to serve static resources

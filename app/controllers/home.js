@@ -4,9 +4,9 @@
         .module('crowdspy')
         .controller('homeCtrl', homeCtrl);
 
-    homeCtrl.$inject = ['$location', 'authentication'];
+    homeCtrl.$inject = ['$location'];
 
-    function homeCtrl ($location, authentication) {
+    function homeCtrl ($location) {
 
         var vm = this;
 

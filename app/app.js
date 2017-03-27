@@ -1,6 +1,6 @@
 (function () {
 
-    angular.module('crowdspy', ['ngRoute', 'ui-leaflet']);
+    angular.module('crowdspy', ['ngRoute']);
 
     function config ($routeProvider, $locationProvider) {
         $routeProvider
