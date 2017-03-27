@@ -9,3 +9,6 @@ npm-debug.log
 
 #bower
 app/bower_components
+
+#Mongo data
+data/

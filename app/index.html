@@ -1,10 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
+<html style="height: 100%; width: 100%" ng-app="crowdspy">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <link href="styles/images/menschenmenge.jpg" rel="shortcut icon" type="image/png">
+    <title>CrowdSpy</title>
+    <base href="/">
+
+    <!-- build:css styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.css"/>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:css({.tmp,app}) styles/main.css -->
+    <!-- endbuild -->
 </head>
-<body>
+<body style="width: 100%; height: 100%">
+<div style="height: 100%; width: 100%" ng-view></div>
+
+<!-- build:js scripts/vendor.js -->
+<!-- bower:js -->
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/angular-route/angular-route.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+<script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+<!--<script src="bower_components/ng-file-upload/ng-file-upload.min.js"></script>-->
+<!-- endbower -->
+<!-- endbuild -->
+
+<!-- build:js({.tmp,app}) scripts/scripts.js -->
+<script src="app.js"></script>
+<script src="controllers/home.controller.js"></script>
+<!-- endbuild -->
 
 </body>
 </html>
