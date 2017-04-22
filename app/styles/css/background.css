@@ -1,0 +1,54 @@
+body {
+    background-image: url("../images/menschenmenge.jpg");
+    background-color: #cccccc;
+    background-repeat: no-repeat;
+    align-items: center;
+    background-size: cover;
+}
+p {
+    font-size: small;
+}
+
+
+.jumbotroncurrent {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: inherit;
+    background-color: #eee;
+}
+.jumbotroncurrent h1,
+.jumbotroncurrent .h1 {
+    color: inherit;
+}
+.jumbotroncurrent p {
+    font-size: small;
+}
+.jumbotroncurrent > hr {
+    border-top-color: #d5d5d5;
+}
+.container .jumbotroncurrent,
+.container-fluid .jumbotroncurrent {
+    padding-right: 15px;
+    padding-left: 15px;
+    border-radius: 6px;
+}
+.jumbotroncurrent .container {
+    max-width: 100%;
+}
+@media screen and (min-width: 768px) {
+    .jumbotroncurrent {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .container .jumbotroncurrent,
+    .container-fluid .jumbotroncurrent {
+        padding-right: 60px;
+        padding-left: 60px;
+    }
+
+    .jumbotroncurrent h1,
+    .jumbotroncurrent .h1 {
+        font-size: small;
+    }
+}
