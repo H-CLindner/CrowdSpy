@@ -24,6 +24,11 @@
                 controller: 'leaderboardCtrl',
                 controllerAs: 'vm'
             })
+            .when('/legalInfo', {
+                templateUrl: 'views/legalInfo.html',
+                controller: 'legalInfoCtrl',
+                controllerAs: 'vm'
+            })
             .otherwise({redirectTo: '/'});
 
         // use the HTML5 History API
