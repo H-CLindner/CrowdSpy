@@ -9,6 +9,21 @@
                 controller: 'homeCtrl',
                 controllerAs: 'vm'
             })
+            .when('/game', {
+                templateUrl: 'views/game.html',
+                controller: 'gameCtrl',
+                controllerAs: 'vm'
+            })
+            .when('/about', {
+                templateUrl: 'views/about.html',
+                controller: 'aboutCtrl',
+                controllerAs: 'vm'
+            })
+            .when('/leaderboard', {
+                templateUrl: 'views/leaderboard.html',
+                controller: 'leaderboardCtrl',
+                controllerAs: 'vm'
+            })
             .otherwise({redirectTo: '/'});
 
         // use the HTML5 History API

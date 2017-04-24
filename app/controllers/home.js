@@ -10,6 +10,8 @@
 
         var vm = this;
 
+        console.log("home controller is here");
+
     }
 
 })();
