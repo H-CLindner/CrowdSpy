@@ -14,8 +14,14 @@
     </div>
 </nav>
 
-<div class="col-md-8" style="padding-top: 2cm; padding-left: 2cm">
-    <img src="../styles/images/menschenmenge.jpg" width="900" height="600">
+<div class="col-md-8" style="padding-top: 2cm; padding-left: 2cm" ng-if="type == single">
+    <img ng-src="{{image}}" width="900" height="600">
+</div>
+<div ng-if="type == direction" id="myCarousel" class="carousel slide col-md-8" data-ride="carousel" style="padding-top: 2cm; padding-left: 2cm">
+    Carousel1
+</div>
+<div ng-if="type == move" id="myCarousel2" class="carousel slide col-md-8" data-ride="carousel" style="padding-top: 2cm; padding-left: 2cm">
+    carousel2
 </div>
 <div class="col-md-4" style="padding-top: 2cm; padding-right: 2cm">
     Hier kommt die Menüführung/das zu spielende Spiel hin.

@@ -12,14 +12,20 @@
 
         var counter = 0;
 
+        $scope.image = '../styles/images/menschenmenge.jpg';
+
         $scope.procedure = function() {
                 switch (counter) {
                     case 0:
                         console.log("Bild 1");
+                        $scope.type = single;
+                        $scope.image = '../styles/images/AnalyseData/Count1.png';
                         counter++;
                         break;
                     case 1:
                         console.log("Bild 2");
+                        $scope.type = single;
+                        $scope.image = '../styles/images/AnalyseData/Density1.png';
                         counter++;
                         break;
                     case 2:
