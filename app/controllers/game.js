@@ -13,27 +13,40 @@
         var counter = 0;
 
         $scope.image = '../styles/images/menschenmenge.jpg';
+        $scope.single = "";
+        $scope.direction = "";
+        $scope.move = "";
 
         $scope.procedure = function() {
                 switch (counter) {
                     case 0:
                         console.log("Bild 1");
-                        $scope.type = single;
+                        $scope.type = 'single';
                         $scope.image = '../styles/images/AnalyseData/Count1.png';
                         counter++;
                         break;
                     case 1:
                         console.log("Bild 2");
-                        $scope.type = single;
+                        $scope.type = 'single';
                         $scope.image = '../styles/images/AnalyseData/Density1.png';
                         counter++;
                         break;
                     case 2:
                         console.log("Bild 3");
+                        $scope.type = 'direction';
+                        $scope.dir1 = '../styles/images/AnalyseData/Direction1/Number1.png';
+                        $scope.dir2 = '../styles/images/AnalyseData/Direction1/Number2.png';
+                        $scope.dir3 = '../styles/images/AnalyseData/Direction1/Number3.png';
+                        $scope.dir4 = '../styles/images/AnalyseData/Direction1/Number4.png';
+                        $scope.dir5 = '../styles/images/AnalyseData/Direction1/Number5.png';
                         counter++;
                         break;
                     case 3:
                         console.log("Bild 4");
+                        $scope.type = 'move';
+                        $scope.move1 = '../styles/images/AnalyseData/static-mobile1/Number1.png';
+                        $scope.move2 = '../styles/images/AnalyseData/static-mobile1/Number2.png';
+                        $scope.move3 = '../styles/images/AnalyseData/static-mobile1/Number3.png';
                         counter++;
                         break;
                     case 4:
