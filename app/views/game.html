@@ -18,7 +18,6 @@
     <img ng-src="{{image}}" width="900" height="600">
 </div>
 
-<div>
 <div ng-if="type == 'direction'" id="myCarousel" class="carousel slide col-md-8" data-ride="carousel" style="padding-top: 2cm; padding-left: 2cm">
 
     <ol class="carousel-indicators">
@@ -63,7 +62,6 @@
     </span>
 
 </div>
-</div>
 
 <div ng-if="type == 'move'" id="myCarousel2" class="carousel slide col-md-8" data-ride="carousel" style="padding-top: 2cm; padding-left: 2cm">
 
@@ -98,6 +96,12 @@
 
 </div>
 
+<div class="col-md-8" style="padding-top: 2cm; padding-left: 2cm" ng-if="type == 'juxtapose'">
+    <juxtapose
+        before-image-url=jux1
+        after-image-url=jux2>
+    </juxtapose>
+</div>
 
 <div class="col-md-4" style="padding-top: 2cm; padding-right: 2cm">
     Hier kommt die Menüführung/das zu spielende Spiel hin.

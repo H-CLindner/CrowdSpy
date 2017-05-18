@@ -1,6 +1,6 @@
 (function () {
 
-    angular.module('crowdspy', ['ngRoute']);
+    angular.module('crowdspy', ['ngRoute', 'ngJuxtapose']);
 
     function config ($routeProvider, $locationProvider) {
         $routeProvider

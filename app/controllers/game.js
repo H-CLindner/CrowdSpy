@@ -16,6 +16,7 @@
         $scope.single = "";
         $scope.direction = "";
         $scope.move = "";
+        $scope.juxtapose = "";
 
         $scope.procedure = function() {
                 switch (counter) {
@@ -51,6 +52,9 @@
                         break;
                     case 4:
                         console.log("Bild 5");
+                        $scope.type = 'juxtapose';
+                        $scope.jux1 = '../styles/images/AnalyseData/Direction1/Number1.png';
+                        $scope.jux2 = '../styles/images/AnalyseData/Direction1/Number5.png';
                         counter++;
                         break;
                     case 5:
