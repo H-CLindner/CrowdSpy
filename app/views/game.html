@@ -26,11 +26,11 @@
     <button type="submit" class="btn btn-primary" ng-click="restart()">Restart</button>
 </div>
 
-<div class="col-md-8" style="padding-top: 2cm; padding-left: 2cm" ng-if="type == 'single'">
-    <img ng-src="{{image}}" width="900" height="600">
+<div class="col-md-8" style="padding-top: 2cm; padding-left: 2cm; padding-right: 2cm; padding-bottom: 2cm" ng-if="type == 'single'">
+    <img ng-src="{{image}}">
 </div>
 
-<div ng-if="type == 'direction'" id="myCarousel" class="carousel slide col-md-8" data-ride="carousel" style="padding-top: 2cm; padding-left: 2cm">
+<div ng-if="type == 'direction'" id="myCarousel" class="carousel slide carousel-fade carousel-fullscreen col-md-8" data-ride="carousel" style="padding-top: 1cm; padding-left: 3cm; padding-right: 3cm; padding-bottom: 0.9cm">
 
     <ol class="carousel-indicators">
         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -70,12 +70,11 @@
     <span class="right carousel-control" href="#myCarousel" data-slide="next">
         <span class="glyphicon glyphicon-chevron-right"></span>
         <span class="sr-only">Next</span>
-
     </span>
 
 </div>
 
-<div ng-if="type == 'move'" id="myCarousel2" class="carousel slide col-md-8" data-ride="carousel" style="padding-top: 2cm; padding-left: 2cm">
+<div ng-if="type == 'move'" id="myCarousel2" class="carousel slide carousel-fade carousel-fullscreen col-md-8" data-ride="carousel" style="padding-top: 1cm; padding-left: 3cm; padding-right: 3cm; padding-bottom: 0.9cm">
 
     <ol class="carousel-indicators">
         <li data-target="#myCarousel2" data-slide-to="0" class="active"></li>
@@ -108,14 +107,14 @@
 
 </div>
 
-<div class="col-md-8" style="padding-top: 2cm; padding-left: 2cm" ng-if="type == 'juxtapose'">
+<div class="col-md-8" style="padding-top: 2cm; padding-left: 2cm; padding-right: 2cm; padding-bottom: 2cm" ng-if="type == 'juxtapose'">
     <juxtapose
         before-image-url=jux1
         after-image-url=jux2>
     </juxtapose>
 </div>
 
-<div class="col-md-4" style="padding-top: 2cm; padding-right: 2cm" ng-if="menu == 'normal'">
+<div class="col-md-4" style="padding-top: 2cm; padding-left: 2cm; padding-right: 2cm; padding-bottom: 2cm" ng-if="menu == 'normal'">
     Hier kommt die Menüführung/das zu spielende Spiel hin.
     <button type="submit" class="btn btn-primary" ng-click="procedure()">Ready</button>
 </div>
