@@ -1,6 +1,7 @@
 var express = require('express');
 var path = require('path');
 var bodyParser = require('body-parser');
+var cookieParser = require('cookie-parser');
 var mongoose = require('mongoose');
 
 //  Bring in the routes for the API (delete the default routes)
@@ -8,8 +9,12 @@ var routesApi = require('./api/routes/index');
 
 var app = express();
 
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'jade');
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cookieParser());
 
 //  Set the app_client folder to serve static resources
 app.use(express.static(path.join(__dirname, 'app')));
@@ -23,7 +28,7 @@ var config = {
 };
 
 //database connection
-mongoose.connect('mongodb://localhost:' + config.mongoPort + '/abschlussaufgabe');
+mongoose.connect('mongodb://localhost:' + config.mongoPort + '/crowdspy');
 var database = mongoose.connection;
 
 database.on('error', console.error.bind(console, 'connection error:'));
@@ -34,7 +39,7 @@ database.once('open', function (callback) {
 //  Otherwise render the index.html page for the Angular SPA
 //  This means we don't have to map all of the SPA routes in Express
 app.use(function(req, res) {
-    res.sendFile(path.join(__dirname, 'app_client', 'index.html'));
+    res.sendFile(path.join(__dirname, 'app', 'index.html'));
 });
 
 // catch 404 and forward to error handler
