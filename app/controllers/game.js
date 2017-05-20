@@ -24,7 +24,7 @@
                 switch (counter) {
                     case 0:
                         console.log("Bild 1");
-                        $scope.menu = 'normal';
+                        $scope.menu = 'count';
                         $scope.type = 'single';
                         $scope.image = '../styles/images/AnalyseData/Count1.png';
                         counter++;

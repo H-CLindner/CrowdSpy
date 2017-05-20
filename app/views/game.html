@@ -114,7 +114,18 @@
     </juxtapose>
 </div>
 
-<div class="col-md-4" style="padding-top: 1cm; padding-left: 1cm; padding-right: 1cm; padding-bottom: 1cm" ng-if="menu == 'normal'">
+<div class="col-md-3" style="padding-left: 1cm; padding-bottom: 1cm" ng-if="menu == 'normal'">
     Hier kommt die Menüführung/das zu spielende Spiel hin.
     <button type="submit" class="btn btn-primary" ng-click="procedure()">Ready</button>
+</div>
+
+<div class="col-md-3" style="padding-left: 1cm; padding-bottom: 1cm" ng-if="menu == 'count'">
+    <form>
+        <h3>Type in how many people you see in the red box in the picture.</h3><br>
+        <input type="number" name="count"><br><br>
+        <button type="submit" class="btn btn-success">Send</button><br>
+            <h3>If you can't decide how many people there are just click this button.</h3><br>
+        <button type="submit" class="btn btn-danger">Send</button><br><br><br>
+    </form>
+    <button type="submit" class="btn btn-primary" ng-click="procedure()">Next</button>
 </div>

@@ -55,3 +55,13 @@
 .navbar-custom .icon-bar {
     background-color:#FFFFFF;
 }
+
+.col-md-3 {
+    border: solid 8px #37E514;
+    border-spacing: 2cm;
+    padding-right: 1cm;
+    padding-top: 1cm;
+    padding-bottom: 1cm;
+    padding-left: 1cm;
+    margin-top: 2cm;
+}
