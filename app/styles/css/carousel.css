@@ -6,6 +6,10 @@
     background-size: cover;
 }
 
+.carousel-fullscreen {
+    background-color: #FFFFFF;
+}
+
 .carousel-fullscreen .carousel-caption {
     top: 50%;
     bottom: auto;
@@ -17,10 +21,12 @@
 .carousel-indicators li {
     background-color: #37E514;
     background-color: rgba(0,100,0,1);
+    margin-bottom: 1cm;
 }
 
 .carousel-indicators .active {
     background-color: #37E514;
+    margin-bottom: 1cm;
 }
 
 .carousel-control {
@@ -70,6 +76,6 @@
 }
 
 .img {
-    height: 1000px;
+    max-height: 100%;
     max-width: 100%;
 }
