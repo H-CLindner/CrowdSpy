@@ -129,3 +129,19 @@
     </form>
     <button type="submit" class="btn btn-primary" ng-click="procedure()">Next</button>
 </div>
+
+<div class="col-md-3" style="padding-left: 1cm; padding-bottom: 1cm" ng-if="menu == 'decision'">
+    <h3>Some decision thing with checkboxes to decide how dense the crowd is</h3>
+</div>
+
+<div class="col-md-3" style="padding-left: 1cm; padding-bottom: 1cm" ng-if="menu == 'circle'">
+    <h3>Some circle decision thing where the user has to decide in which direction the people are going</h3>
+</div>
+
+<div class="col-md-3" style="padding-left: 1cm; padding-bottom: 1cm" ng-if="menu == 'draw'">
+    <h3>Some drawing tool where the user can draw arrows in the pictures to show in which direction the people are going</h3>
+</div>
+
+<div class="col-md-3" style="padding-left: 1cm; padding-bottom: 1cm" ng-if="menu == 'colour'">
+    <h3>Some drawing tool where the user can colour in parts where the density is high</h3>
+</div>
