@@ -132,7 +132,7 @@
 
 <div class="col-md-3" style="padding-left: 1cm; padding-bottom: 1cm" ng-if="menu == 'decision'">
         <h3>Decide in your own opinion how dense the shown crowd is</h3><br>
-        <p>Selected: {{selected}}</p><br>
+    <p><b>Selected: {{selected}}</b></p><br>
         <input type="checkbox" name="density" ng-checked="selected == 'very dense'" ng-true-value="'very dense'" ng-model="selected" value="vdense"> It's very dense (dangerous)<br>
         <input type="checkbox" name="density" ng-checked="selected == 'dense'" ng-true-value="'dense'" ng-model="selected" value="dense"> It's dense (not dangerous)<br>
         <input type="checkbox" name="density" ng-checked="selected == 'normal'" ng-true-value="'normal'" ng-model="selected" value="dnormal"> It's normal. (dense but not dangerous)<br>
