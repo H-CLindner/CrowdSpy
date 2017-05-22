@@ -19,6 +19,7 @@
         $scope.juxtapose = "";
         $scope.type = "start";
         $scope.menu = "start";
+        $scope.selected = "nothing";
 
         $scope.procedure = function() {
                 switch (counter) {
@@ -31,7 +32,7 @@
                         break;
                     case 1:
                         console.log("Bild 2");
-                        $scope.menu = 'normal';
+                        $scope.menu = 'decision';
                         $scope.type = 'single';
                         $scope.image = '../styles/images/AnalyseData/Density1.png';
                         counter++;
