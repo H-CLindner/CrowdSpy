@@ -79,14 +79,14 @@
                         break;
                     case 7:
                         console.log("Bild 8");
-                        $scope.menu = 'normal';
+                        $scope.menu = 'count';
                         $scope.type = 'single';
                         $scope.image = '../styles/images/AnalyseData/Count2.png';
                         counter++;
                         break;
                     case 8:
                         console.log("Bild 9");
-                        $scope.menu = 'normal';
+                        $scope.menu = 'decision';
                         $scope.type = 'single';
                         $scope.image = '../styles/images/AnalyseData/Density2.png';
                         counter++;
@@ -131,14 +131,14 @@
                         break;
                     case 14:
                         console.log("Bild 15");
-                        $scope.menu = 'normal';
+                        $scope.menu = 'count';
                         $scope.type = 'single';
                         $scope.image = '../styles/images/AnalyseData/Count3.png';
                         counter++;
                         break;
                     case 15:
                         console.log("Bild 16");
-                        $scope.menu = 'normal';
+                        $scope.menu = 'decision';
                         $scope.type = 'single';
                         $scope.image = '../styles/images/AnalyseData/Density3.png';
                         counter++;
@@ -185,14 +185,14 @@
                         break;
                     case 21:
                         console.log("Bild 22");
-                        $scope.menu = 'normal';
+                        $scope.menu = 'count';
                         $scope.type = 'single';
                         $scope.image = '../styles/images/AnalyseData/Count4.png';
                         counter++;
                         break;
                     case 22:
                         console.log("Bild 23");
-                        $scope.menu = 'normal';
+                        $scope.menu = 'decision';
                         $scope.type = 'single';
                         $scope.image = '../styles/images/AnalyseData/Density4.png';
                         counter++;
@@ -237,14 +237,14 @@
                         break;
                     case 28:
                         console.log("Bild 29");
-                        $scope.menu = 'normal';
+                        $scope.menu = 'count';
                         $scope.type = 'single';
                         $scope.image = '../styles/images/AnalyseData/Count5.png';
                         counter++;
                         break;
                     case 29:
                         console.log("Bild 30");
-                        $scope.menu = 'normal';
+                        $scope.menu = 'decision';
                         $scope.type = 'single';
                         $scope.image = '../styles/images/AnalyseData/Density5.png';
                         counter++;
