@@ -127,6 +127,14 @@
             <h3>If you can't decide how many people there are just click this button.</h3><br>
         <button type="submit" class="btn btn-danger">Send</button><br><br><br>
     </form>
+    <h3>Decide how difficult it was to answer the question</h3><br>
+    <p><b>Selected: {{difficulty}}</b></p><br>
+    <input type="checkbox" name="difficulty" ng-checked="difficulty == 'very hard'" ng-true-value="'very hard'" ng-model="difficulty" value="vhard"> It was very hard<br>
+    <input type="checkbox" name="difficulty" ng-checked="difficulty == 'hard'" ng-true-value="'hard'" ng-model="difficulty" value="hard"> It was very hard<br>
+    <input type="checkbox" name="difficulty" ng-checked="difficulty == 'normal'" ng-true-value="'normal'" ng-model="difficulty" value="dnormal"> It was normal<br>
+    <input type="checkbox" name="difficulty" ng-checked="difficulty == 'rather easy'" ng-true-value="'rather easy'" ng-model="difficulty" value="reasy"> It was rather easy<br>
+    <input type="checkbox" name="difficulty" ng-checked="difficulty == 'easy'" ng-true-value="'easy'" ng-model="difficulty" value="easy"> It was easy<br>
+    <input type="checkbox" name="difficulty" ng-checked="difficulty == 'very easy'" ng-true-value="'very easy'" ng-model="difficulty" value="veasy"> It was very easy<br><br>
     <button type="submit" class="btn btn-primary" ng-click="procedure()">Next</button>
 </div>
 
@@ -139,6 +147,14 @@
         <input type="checkbox" name="density" ng-checked="selected == 'rather light'" ng-true-value="'rather light'" ng-model="selected" value="vnormal"> It's rather light (normal movement possible)<br>
         <input type="checkbox" name="density" ng-checked="selected == 'light'" ng-true-value="'light'" ng-model="selected" value="light"> It's light (much space between people)<br>
         <input type="checkbox" name="density" ng-checked="selected == 'very light'" ng-true-value="'very light'" ng-model="selected" value="vlight"> It's very light (almost no people)<br><br>
+    <h3>Decide how difficult it was to answer the question</h3><br>
+    <p><b>Selected: {{difficulty}}</b></p><br>
+    <input type="checkbox" name="difficulty" ng-checked="difficulty == 'very hard'" ng-true-value="'very hard'" ng-model="difficulty" value="vhard"> It was very hard<br>
+    <input type="checkbox" name="difficulty" ng-checked="difficulty == 'hard'" ng-true-value="'hard'" ng-model="difficulty" value="hard"> It was very hard<br>
+    <input type="checkbox" name="difficulty" ng-checked="difficulty == 'normal'" ng-true-value="'normal'" ng-model="difficulty" value="dnormal"> It was normal<br>
+    <input type="checkbox" name="difficulty" ng-checked="difficulty == 'rather easy'" ng-true-value="'rather easy'" ng-model="difficulty" value="reasy"> It was rather easy<br>
+    <input type="checkbox" name="difficulty" ng-checked="difficulty == 'easy'" ng-true-value="'easy'" ng-model="difficulty" value="easy"> It was easy<br>
+    <input type="checkbox" name="difficulty" ng-checked="difficulty == 'very easy'" ng-true-value="'very easy'" ng-model="difficulty" value="veasy"> It was very easy<br><br>
     <button type="submit" class="btn btn-primary" ng-click="procedure()">Next</button>
 </div>
 
