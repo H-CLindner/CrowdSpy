@@ -166,6 +166,18 @@
     <h3>Some drawing tool where the user can draw arrows in the pictures to show in which direction the people are going</h3>
 </div>
 
-<div class="col-md-3" style="padding-left: 1cm; padding-bottom: 1cm" ng-if="menu == 'colour'">
-    <h3>Some drawing tool where the user can colour in parts where the density is high</h3>
+<div class="col-md-3" style="padding-left: 1cm; padding-bottom: 1cm" ng-if="menu == 'movement'">
+    <h3>Decide if the crowd is moving or not</h3><br>
+    <p><b>Selected: {{movement}}</b></p><br>
+    <input type="checkbox" name="movement" ng-checked="movement == 'moving'" ng-true-value="'moving'" ng-model="movement" value="moving"> Crowd is moving<br>
+    <input type="checkbox" name="movement" ng-checked="movement == 'static'" ng-true-value="'static'" ng-model="movement" value="static"> Crowd is static<br>
+    <h3>Decide how difficult it was to answer the question</h3><br>
+    <p><b>Selected: {{difficulty}}</b></p><br>
+    <input type="checkbox" name="difficulty" ng-checked="difficulty == 'very hard'" ng-true-value="'very hard'" ng-model="difficulty" value="vhard"> It was very hard<br>
+    <input type="checkbox" name="difficulty" ng-checked="difficulty == 'hard'" ng-true-value="'hard'" ng-model="difficulty" value="hard"> It was very hard<br>
+    <input type="checkbox" name="difficulty" ng-checked="difficulty == 'normal'" ng-true-value="'normal'" ng-model="difficulty" value="dnormal"> It was normal<br>
+    <input type="checkbox" name="difficulty" ng-checked="difficulty == 'rather easy'" ng-true-value="'rather easy'" ng-model="difficulty" value="reasy"> It was rather easy<br>
+    <input type="checkbox" name="difficulty" ng-checked="difficulty == 'easy'" ng-true-value="'easy'" ng-model="difficulty" value="easy"> It was easy<br>
+    <input type="checkbox" name="difficulty" ng-checked="difficulty == 'very easy'" ng-true-value="'very easy'" ng-model="difficulty" value="veasy"> It was very easy<br><br>
+    <button type="submit" class="btn btn-primary" ng-click="procedure()">Next</button>
 </div>

@@ -21,6 +21,7 @@
         $scope.menu = "start";
         $scope.selected = "nothing";
         $scope.difficulty = "nothing";
+        $scope.movement = "nothing";
 
         $scope.procedure = function() {
                 switch (counter) {
