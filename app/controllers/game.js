@@ -4,9 +4,9 @@
         .module('crowdspy')
         .controller('gameCtrl', gameCtrl);
 
-    gameCtrl.$inject = ['$scope', '$location'];
+    gameCtrl.$inject = ['$scope', 'drawing', '$location'];
 
-    function gameCtrl ($scope, $location) {
+    function gameCtrl ($scope, drawing, $location) {
 
         var vm = this;
 
@@ -17,6 +17,7 @@
         $scope.direction = "";
         $scope.move = "";
         $scope.juxtapose = "";
+        $scope.canvas = "";
         $scope.type = "start";
         $scope.menu = "start";
         $scope.selected = "nothing";
@@ -48,13 +49,15 @@
                         break;
                     case 3:
                         console.log("Bild 4");
-                        $scope.menu = 'normal';
+                        $scope.menu = 'circle';
                         $scope.type = 'direction';
                         $scope.dir1 = '../styles/images/AnalyseData/Direction1/Number1.jpg';
                         $scope.dir2 = '../styles/images/AnalyseData/Direction1/Number2.jpg';
                         $scope.dir3 = '../styles/images/AnalyseData/Direction1/Number3.jpg';
                         $scope.dir4 = '../styles/images/AnalyseData/Direction1/Number4.jpg';
                         $scope.dir5 = '../styles/images/AnalyseData/Direction1/Number5.jpg';
+                        $scope.canvas = '../styles/images/AnalyseData/Direction1/Number1.jpg';
+                        drawing.drawArrow(1, 20, 5, 25);
                         counter++;
                         break;
                     case 4:
@@ -307,8 +310,33 @@
             $scope.type = "start";
             $scope.menu = "start";
             location.reload();
-        }
+        };
 
+        $scope.data = [{
+                "direction": "North",
+                "stub": 10
+            }, {
+                "direction": "Northeast",
+                "stub": 10
+            }, {
+                "direction": "East",
+                "stub": 10
+            },{
+                "direction": "Southeast",
+                "stub": 10
+            }, {
+                "direction": "South",
+                "stub": 10
+            }, {
+                "direction": "Southwest",
+                "stub": 10
+            }, {
+                "direction": "West",
+                "stub": 10
+            }, {
+                "direction": "Northwest",
+                "stub": 10
+            }];
     }
 
 })();
