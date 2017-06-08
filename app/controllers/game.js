@@ -4,9 +4,9 @@
         .module('crowdspy')
         .controller('gameCtrl', gameCtrl);
 
-    gameCtrl.$inject = ['$scope', 'drawing', '$location'];
+    gameCtrl.$inject = ['$scope', '$location'];
 
-    function gameCtrl ($scope, drawing, $location) {
+    function gameCtrl ($scope, $location) {
 
         var vm = this;
 
@@ -57,7 +57,6 @@
                         $scope.dir4 = '../styles/images/AnalyseData/Direction1/Number4.jpg';
                         $scope.dir5 = '../styles/images/AnalyseData/Direction1/Number5.jpg';
                         $scope.canvas = '../styles/images/AnalyseData/Direction1/Number1.jpg';
-                        drawing.drawArrow(1, 20, 5, 25);
                         counter++;
                         break;
                     case 4:

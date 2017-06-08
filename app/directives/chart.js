@@ -11,7 +11,7 @@
                     source: '=',
                     chartId: '@'
                 },
-                template: '<div id="{{chartId}}" style="min-width: 300px; height: 300px; margin: 0 auto"></div>',
+                template: '<div id="{{chartId}}" style="min-width:300px; height:300px; margin:0 auto"></div>',
                 link: function (scope, element, attrs){
                     var chart = false;
 
@@ -23,7 +23,7 @@
                         console.log(scope.source);
                         chart = AmCharts.makeChart(scope.chartId,{
                             "type": scope.type,
-                            "theme": "none",
+                            "theme": "light",
                             "pathToImages": "../bower_components/amcharts3/amcharts/images/",
                             "dataProvider": scope.source,
                             "valueField": "stub",
