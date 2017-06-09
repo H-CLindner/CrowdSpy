@@ -312,29 +312,37 @@
         };
 
         $scope.data = [{
-                "direction": "North",
-                "stub": 10
+                "direction": "1",
+                "stub": 10,
+                "color": "#76EE00"
             }, {
-                "direction": "Northeast",
-                "stub": 10
+                "direction": "2",
+                "stub": 10,
+                "color": "#76EE00"
             }, {
-                "direction": "East",
-                "stub": 10
+                "direction": "3",
+                "stub": 10,
+                "color": "#76EE00"
             },{
-                "direction": "Southeast",
-                "stub": 10
+                "direction": "4",
+                "stub": 10,
+                "color": "#76EE00"
             }, {
-                "direction": "South",
-                "stub": 10
+                "direction": "5",
+                "stub": 10,
+                "color": "#76EE00"
             }, {
-                "direction": "Southwest",
-                "stub": 10
+                "direction": "6",
+                "stub": 10,
+                "color": "#76EE00"
             }, {
-                "direction": "West",
-                "stub": 10
+                "direction": "7",
+                "stub": 10,
+                "color": "#76EE00"
             }, {
-                "direction": "Northwest",
-                "stub": 10
+                "direction": "8",
+                "stub": 10,
+                "color": "#76EE00"
             }];
     }
 
