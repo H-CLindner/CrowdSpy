@@ -19,8 +19,6 @@
                         if (chart) chart.destroy();
                         var config = scope.config || {};
 
-                        console.log(scope.chartId);
-                        console.log(scope.source);
                         chart = AmCharts.makeChart(scope.chartId,{
                             "type": scope.type,
                             "theme": "light",
@@ -48,7 +46,6 @@
                                 }
                             }]
                         });
-                        console.log(chart);
                     };
                     initChart();
                 }

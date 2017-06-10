@@ -12,61 +12,67 @@
                 template: '<canvas id="canvas" height="300" width="300" style="display:block; margin:1em auto; border:1px solid black; background-size: 100% 100%;"></canvas>',
                 link: function (scope, element, attrs) {
 
+                    function Arrow(fromx, fromy, tox, toy) {
+                        //variables to be used when creating the arrow
+                        this.x1 = fromx;
+                        this.y1 = fromy;
+                        this.x2 = tox;
+                        this.y2 = toy;
+                        this.headlen = 1;
+                    }
+
+                    Arrow.prototype.drawToContext = function (context) {
+
+                        var angle = Math.atan2(this.y2 - this.y1, this.x2 - this.x1);
+
+                        //starting path of the arrow from the start square to the end square and drawing the stroke
+                        context.beginPath();
+                        context.moveTo(this.x1, this.y1);
+                        context.lineTo(this.x2, this.y2);
+                        context.strokeStyle = "#cc0000";
+                        context.lineWidth = 3;
+                        context.stroke();
+
+                        //starting a new path from the head of the arrow to one of the sides of the point
+                        context.beginPath();
+                        context.moveTo(this.x2, this.y2);
+                        context.lineTo(this.x2 - this.headlen * Math.cos(angle - Math.PI / 7), this.y2 - this.headlen * Math.sin(angle - Math.PI / 7));
+
+                        //path from the side point of the arrow, to the other side point
+                        context.lineTo(this.x2 - this.headlen * Math.cos(angle + Math.PI / 7), this.y2 - this.headlen * Math.sin(angle + Math.PI / 7));
+
+                        //path from the side point back to the tip of the arrow, and then again to the opposite side point
+                        context.lineTo(this.x2, this.y2);
+                        context.lineTo(this.x2 - this.headlen * Math.cos(angle - Math.PI / 7), this.y2 - this.headlen * Math.sin(angle - Math.PI / 7));
+
+                        //draws the paths created above
+                        context.strokeStyle = "#cc0000";
+                        context.lineWidth = 10;
+                        context.stroke();
+                        context.fillStyle = "#cc0000";
+                        context.fill();
+                    };
+
+                    Arrow.prototype.hitTest = function (hitX, hitY) {
+                        var hit1 = ((hitX > this.x1) && (hitX < this.x2) || (hitX > this.x2) && (hitX < this.x1));
+                        var hit2 = ((hitY > this.y1) && (hitY < this.y2) || (hitY > this.y2) && (hitY < this.y1));
+                        return (hit1 && hit2);
+                    };
+
+                    CanvasApp();
+
+                    function CanvasApp() {
+
                         var c = document.getElementById('canvas');
                         var ctx = c.getContext("2d");
                         dragging();
 
-                        function Arrow(fromx, fromy, tox, toy) {
-                            //variables to be used when creating the arrow
-                            this.x1 = fromx;
-                            this.y1 = fromy;
-                            this.x2 = tox;
-                            this.y2 = toy;
-                            this.headlen = 1;
-                        }
-
-                        Arrow.prototype.drawToContext = function (context) {
-
-                            var angle = Math.atan2(this.y2 - this.y1, this.x2 - this.x1);
-
-                            //starting path of the arrow from the start square to the end square and drawing the stroke
-                            ctx.beginPath();
-                            ctx.moveTo(this.x1, this.y1);
-                            ctx.lineTo(this.x2, this.y2);
-                            ctx.strokeStyle = "#cc0000";
-                            ctx.lineWidth = 3;
-                            ctx.stroke();
-
-                            //starting a new path from the head of the arrow to one of the sides of the point
-                            ctx.beginPath();
-                            ctx.moveTo(this.x2, this.y2);
-                            ctx.lineTo(this.x2 - this.headlen * Math.cos(angle - Math.PI / 7), this.y2 - this.headlen * Math.sin(angle - Math.PI / 7));
-
-                            //path from the side point of the arrow, to the other side point
-                            ctx.lineTo(this.x2 - this.headlen * Math.cos(angle + Math.PI / 7), this.y2 - this.headlen * Math.sin(angle + Math.PI / 7));
-
-                            //path from the side point back to the tip of the arrow, and then again to the opposite side point
-                            ctx.lineTo(this.x2, this.y2);
-                            ctx.lineTo(this.x2 - this.headlen * Math.cos(angle - Math.PI / 7), this.y2 - this.headlen * Math.sin(angle - Math.PI / 7));
-
-                            //draws the paths created above
-                            ctx.strokeStyle = "#cc0000";
-                            ctx.lineWidth = 10;
-                            ctx.stroke();
-                            ctx.fillStyle = "#cc0000";
-                            ctx.fill();
-                        };
-
-                        Arrow.prototype.hitTest = function (hitX, hitY) {
-                            var hit1 = ((hitX > this.x1) && (hitX < this.x2) || (hitX > this.x2) && (hitX < this.x1));
-                            var hit2 = ((hitY > this.y1) && (hitY < this.y2) || (hitY > this.y2) && (hitY < this.y1));
-                            return (hit1 && hit2);
-                        };
-
                         function dragging() {
 
-                            var shapes = [];
+                            init();
+
                             var i;
+                            var shapes;
                             var mouseX;
                             var mouseY;
                             var dragIndex;
@@ -80,20 +86,28 @@
                             var targetX2;
                             var targetY2;
                             var timer;
-                            var easeAmount = 0.5;
+                            var easeAmount;
 
-                            initialise();
+                            function init() {
+                                shapes = [];
+                                easeAmount = 0.5;
 
-                            c.addEventListener("mousedown", mouseDownListener, false);
+                                makeArrows();
 
+                                initialise();
 
-                            var arrow1 = new Arrow(100, 100, 50, 50);
-                            var arrow2 = new Arrow(200, 200, 150, 150);
-                            var arrow3 = new Arrow(300, 300, 250, 250);
-                            var arrow4 = new Arrow(150, 200, 100, 150);
-                            var arrow5 = new Arrow(200, 250, 150, 200);
-                            console.log(arrow1);
-                            shapes.push(arrow1, arrow2, arrow3, arrow4, arrow5);
+                                c.addEventListener("mousedown", mouseDownListener, false);
+                            }
+
+                            function makeArrows() {
+                                var arrow1 = new Arrow(100, 100, 50, 50);
+                                var arrow2 = new Arrow(200, 200, 150, 150);
+                                var arrow3 = new Arrow(300, 300, 250, 250);
+                                var arrow4 = new Arrow(150, 200, 100, 150);
+                                var arrow5 = new Arrow(200, 250, 150, 200);
+
+                                shapes.push(arrow1, arrow2, arrow3, arrow4, arrow5);
+                            }
 
                             function mouseDownListener(evt) {
 
@@ -210,6 +224,7 @@
                             }
 
                         }
+                    }
                 }
             }
         });
