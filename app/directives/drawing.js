@@ -51,12 +51,20 @@
                         context.stroke();
                         context.fillStyle = "#cc0000";
                         context.fill();
+                        context.restore();
                     };
 
                     Arrow.prototype.hitTest = function (hitX, hitY) {
                         var hit1 = ((hitX > this.x1) && (hitX < this.x2) || (hitX > this.x2) && (hitX < this.x1));
                         var hit2 = ((hitY > this.y1) && (hitY < this.y2) || (hitY > this.y2) && (hitY < this.y1));
                         return (hit1 && hit2);
+                    };
+
+                    Arrow.prototype.hitTestRotation = function(hitX, hitY) {
+                        var hit1 = ((hitX < this.x1)&&(hitX > this.x1+15) || (hitX > this.x1)&&(hitX < this.x1+15));
+                        var hit2 = ((hitY < this.y1)&&(hitY > this.y1+15) || (hitY > this.y1)&&(hitY < this.y1+15));
+
+                        return(hit1||hit2);
                     };
 
                     CanvasApp();
@@ -81,12 +89,20 @@
                             var dragHoldX2;
                             var dragHoldY2;
                             var dragging;
+                            var rotating;
                             var targetX;
                             var targetY;
                             var targetX2;
                             var targetY2;
                             var timer;
                             var easeAmount;
+
+                            var cx = c.width / 2;
+                            var cy = c.height / 2;
+                            var w;
+                            var h;
+                            var r = 0;
+                            var isDown = false;
 
                             function init() {
                                 shapes = [];
@@ -120,6 +136,9 @@
                                         dragging = true;
                                         dragIndex = i;
                                     }
+                                    if (shapes[i].hitTestRotation(mouseX, mouseY)){
+                                        rotating = true;
+                                    }
                                 }
 
                                 if (dragging) {
@@ -140,6 +159,9 @@
 
                                     timer = setInterval(onTimerTick, 1000 / 30);
                                 }
+
+                                drawRotationHandle(false);
+                                isDown = rotating;
 
                                 c.removeEventListener("mousedown", mouseDownListener, false);
                                 window.addEventListener("mouseup", mouseUpListener, false);
@@ -177,6 +199,7 @@
                                     dragging = false;
                                     window.removeEventListener("mousemove", mouseMoveListener, false);
                                 }
+                                isDown = false;
                             }
 
                             function mouseMoveListener(evt) {
@@ -208,12 +231,23 @@
                                 targetY = posY;
                                 targetX2 = posX2;
                                 targetY2 = posY2;
+
+                                if (!isDown) {
+                                    return;
+                                }
+
+                                var dx = mouseX - cx;
+                                var dy = mouseY - cy;
+                                r = Math.atan2(dx, dy);
+                                initialise();
                             }
 
                             function drawShapes() {
+                                ctx.rotate(r);
                                 for (i = 0; i < shapes.length; i++) {
                                     shapes[i].drawToContext(ctx);
                                 }
+                                drawRotationHandle(true);
                             }
 
                             function initialise() {
@@ -223,6 +257,36 @@
                                 drawShapes();
                             }
 
+                            function drawRotationHandle(withFill){
+
+                                for(i=0;i<shapes.length;i++) {
+                                    w = shapes[i].x1;
+                                    h = shapes[i].y1;
+
+                                    ctx.save();
+                                    ctx.translate(cx, cy);
+                                    ctx.rotate(r);
+                                    ctx.beginPath();
+                                    ctx.moveTo(w-1, h);
+                                    ctx.lineTo(w+5, h+6);
+                                    ctx.lineTo(w+10, h);
+                                    ctx.lineTo(w+15, h+5);
+                                    ctx.lineTo(w+5, h+15);
+                                    ctx.lineTo(w, h+10);
+                                    ctx.lineTo(w+6, h+5);
+                                    ctx.lineTo(w, h-1);
+                                    ctx.closePath();
+                                    if (withFill) {
+                                        ctx.fillStyle = "blue";
+                                        ctx.fill();
+                                    }
+                                    ctx.restore();
+                                }
+                            }
+
+                            function MouseOutListener(e) {
+                                isDown = false;
+                            }
                         }
                     }
                 }

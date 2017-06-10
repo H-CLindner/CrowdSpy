@@ -147,6 +147,8 @@
         <input type="checkbox" name="density" ng-checked="selected == 'rather light'" ng-true-value="'rather light'" ng-model="selected" value="vnormal"> It's rather light (normal movement possible)<br>
         <input type="checkbox" name="density" ng-checked="selected == 'light'" ng-true-value="'light'" ng-model="selected" value="light"> It's light (much space between people)<br>
         <input type="checkbox" name="density" ng-checked="selected == 'very light'" ng-true-value="'very light'" ng-model="selected" value="vlight"> It's very light (almost no people)<br><br>
+    <h3>Place the square where you think the density is the highest</h3><br><br>
+    <my-square plus2="{{canvas2}}"></my-square><br><br>
     <h3>Decide how difficult it was to answer the question</h3><br>
     <p><b>Selected: {{difficulty}}</b></p><br>
     <input type="checkbox" name="difficulty" ng-checked="difficulty == 'very hard'" ng-true-value="'very hard'" ng-model="difficulty" value="vhard"> It was very hard<br>
@@ -174,10 +176,6 @@
     <input type="checkbox" name="difficulty" ng-checked="difficulty == 'easy'" ng-true-value="'easy'" ng-model="difficulty" value="easy"> It was easy<br>
     <input type="checkbox" name="difficulty" ng-checked="difficulty == 'very easy'" ng-true-value="'very easy'" ng-model="difficulty" value="veasy"> It was very easy<br><br>
     <button type="submit" class="btn btn-primary" ng-click="procedure()">Next</button>
-</div>
-
-<div class="col-md-3" style="padding-left: 1cm; padding-bottom: 1cm" ng-if="menu == 'draw'">
-    <h3>Some drawing tool where the user can draw arrows in the pictures to show in which direction the people are going</h3>
 </div>
 
 <div class="col-md-3" style="padding-left: 1cm; padding-bottom: 1cm" ng-if="menu == 'movement'">

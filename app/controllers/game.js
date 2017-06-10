@@ -18,6 +18,7 @@
         $scope.move = "";
         $scope.juxtapose = "";
         $scope.canvas = "";
+        $scope.canvas2 = "";
         $scope.type = "start";
         $scope.menu = "start";
         $scope.selected = "nothing";
@@ -36,18 +37,12 @@
                     case 1:
                         console.log("Bild 2");
                         $scope.menu = 'decision';
+                        $scope.canvas2 = '../styles/images/AnalyseData/Density1.png';
                         $scope.type = 'single';
                         $scope.image = '../styles/images/AnalyseData/Density1.png';
                         counter++;
                         break;
                     case 2:
-                        console.log("Bild 3");
-                        $scope.menu = 'normal';
-                        $scope.type = 'single';
-                        $scope.image = '../styles/images/AnalyseData/Density1.png';
-                        counter++;
-                        break;
-                    case 3:
                         console.log("Bild 4");
                         $scope.menu = 'circle';
                         $scope.type = 'direction';
@@ -59,14 +54,14 @@
                         $scope.canvas = '../styles/images/AnalyseData/Direction1/Number1.jpg';
                         counter++;
                         break;
-                    case 4:
+                    case 3:
                         console.log("Bild 5");
                         $scope.menu = 'normal';
                         $scope.type = 'single';
                         $scope.image = '../styles/images/AnalyseData/Direction1/Number1.jpg';
                         counter++;
                         break;
-                    case 5:
+                    case 4:
                         console.log("Bild 6");
                         $scope.menu = 'normal';
                         $scope.type = 'juxtapose';
@@ -74,35 +69,28 @@
                         $scope.jux2 = '../styles/images/AnalyseData/Direction1/Number2.jpg';
                         counter++;
                         break;
-                    case 6:
+                    case 5:
                         console.log("Bild 7");
                         $scope.menu = 'normal';
                         $scope.type = 'single';
                         $scope.image = '../styles/images/AnalyseData/Direction1/Dir1.gif';
                         counter++;
                         break;
-                    case 7:
+                    case 6:
                         console.log("Bild 8");
                         $scope.menu = 'count';
                         $scope.type = 'single';
                         $scope.image = '../styles/images/AnalyseData/Count2.png';
                         counter++;
                         break;
-                    case 8:
+                    case 7:
                         console.log("Bild 9");
                         $scope.menu = 'decision';
                         $scope.type = 'single';
                         $scope.image = '../styles/images/AnalyseData/Density2.png';
                         counter++;
                         break;
-                    case 9:
-                        console.log("Bild 10");
-                        $scope.menu = 'normal';
-                        $scope.type = 'single';
-                        $scope.image = '../styles/images/AnalyseData/Density2.png';
-                        counter++;
-                        break;
-                    case 10:
+                    case 8:
                         console.log("Bild 11");
                         $scope.menu = 'normal';
                         $scope.type = 'direction';
@@ -113,14 +101,14 @@
                         $scope.dir5 = '../styles/images/AnalyseData/Direction3/Number5.jpg';
                         counter++;
                         break;
-                    case 11:
+                    case 9:
                         console.log("Bild 12");
                         $scope.menu = 'normal';
                         $scope.type = 'single';
                         $scope.image = '../styles/images/AnalyseData/Direction3/Number1.jpg';
                         counter++;
                         break;
-                    case 12:
+                    case 10:
                         console.log("Bild 13");
                         $scope.menu = 'normal';
                         $scope.type = 'juxtapose';
@@ -128,35 +116,28 @@
                         $scope.jux2 = '../styles/images/AnalyseData/Direction3/Number2.jpg';
                         counter++;
                         break;
-                    case 13:
+                    case 11:
                         console.log("Bild 14");
                         $scope.menu = 'normal';
                         $scope.type = 'single';
                         $scope.image = '../styles/images/AnalyseData/Direction3/Dir3.gif';
                         counter++;
                         break;
-                    case 14:
+                    case 12:
                         console.log("Bild 15");
                         $scope.menu = 'count';
                         $scope.type = 'single';
                         $scope.image = '../styles/images/AnalyseData/Count3.png';
                         counter++;
                         break;
-                    case 15:
+                    case 13:
                         console.log("Bild 16");
                         $scope.menu = 'decision';
                         $scope.type = 'single';
                         $scope.image = '../styles/images/AnalyseData/Density3.png';
                         counter++;
                         break;
-                    case 16:
-                        console.log("Bild 17");
-                        $scope.menu = 'normal';
-                        $scope.type = 'single';
-                        $scope.image = '../styles/images/AnalyseData/Density3.png';
-                        counter++;
-                        break;
-                    case 17:
+                    case 14:
                         console.log("Bild 18");
                         $scope.menu = 'normal';
                         $scope.type = 'direction';
@@ -167,14 +148,14 @@
                         $scope.dir5 = '../styles/images/AnalyseData/Direction2/Number5.jpg';
                         counter++;
                         break;
-                    case 18:
+                    case 15:
                         console.log("Bild 19");
                         $scope.menu = 'normal';
                         $scope.type = 'single';
                         $scope.image = '../styles/images/AnalyseData/Direction2/Number1.jpg';
                         counter++;
                         break;
-                    case 19:
+                    case 16:
                         console.log("Bild 20");
                         $scope.menu = 'normal';
                         $scope.type = 'juxtapose';
@@ -182,35 +163,28 @@
                         $scope.jux2 = '../styles/images/AnalyseData/Direction2/Number2.jpg';
                         counter++;
                         break;
-                    case 20:
+                    case 17:
                         console.log("Bild 21");
                         $scope.menu = 'normal';
                         $scope.type = 'single';
                         $scope.image = '../styles/images/AnalyseData/Direction2/Dir2.gif';
                         counter++;
                         break;
-                    case 21:
+                    case 18:
                         console.log("Bild 22");
                         $scope.menu = 'count';
                         $scope.type = 'single';
                         $scope.image = '../styles/images/AnalyseData/Count4.png';
                         counter++;
                         break;
-                    case 22:
+                    case 19:
                         console.log("Bild 23");
                         $scope.menu = 'decision';
                         $scope.type = 'single';
                         $scope.image = '../styles/images/AnalyseData/Density4.png';
                         counter++;
                         break;
-                    case 23:
-                        console.log("Bild 24");
-                        $scope.menu = 'normal';
-                        $scope.type = 'single';
-                        $scope.image = '../styles/images/AnalyseData/Density4.png';
-                        counter++;
-                        break;
-                    case 24:
+                    case 20:
                         console.log("Bild 25");
                         $scope.menu = 'normal';
                         $scope.type = 'direction';
@@ -221,14 +195,14 @@
                         $scope.dir5 = '../styles/images/AnalyseData/Direction4/Number5.jpg';
                         counter++;
                         break;
-                    case 25:
+                    case 21:
                         console.log("Bild 26");
                         $scope.menu = 'normal';
                         $scope.type = 'single';
                         $scope.image = '../styles/images/AnalyseData/Direction4/Number1.jpg';
                         counter++;
                         break;
-                    case 26:
+                    case 22:
                         console.log("Bild 27");
                         $scope.menu = 'normal';
                         $scope.type = 'juxtapose';
@@ -236,41 +210,34 @@
                         $scope.jux2 = '../styles/images/AnalyseData/Direction4/Number2.jpg';
                         counter++;
                         break;
-                    case 27:
+                    case 23:
                         console.log("Bild 28");
                         $scope.menu = 'normal';
                         $scope.type = 'single';
                         $scope.image = '../styles/images/AnalyseData/Direction4/Dir4.gif';
                         counter++;
                         break;
-                    case 28:
+                    case 24:
                         console.log("Bild 29");
                         $scope.menu = 'count';
                         $scope.type = 'single';
                         $scope.image = '../styles/images/AnalyseData/Count5.png';
                         counter++;
                         break;
-                    case 29:
+                    case 25:
                         console.log("Bild 30");
                         $scope.menu = 'decision';
                         $scope.type = 'single';
                         $scope.image = '../styles/images/AnalyseData/Density5.png';
                         counter++;
                         break;
-                    case 30:
-                        console.log("Bild 31");
-                        $scope.menu = 'normal';
-                        $scope.type = 'single';
-                        $scope.image = '../styles/images/AnalyseData/Density5.png';
-                        counter++;
-                        break;
-                    case 31:
+                    case 26:
                         console.log("Ende");
                         $scope.menu = 'end';
                         $scope.type = 'end';
                         counter++;
                         break;
-                    case 32:
+                    case 27:
                         console.log("Bild 25");
                         $scope.menu = 'normal';
                         $scope.type = 'move';
@@ -279,14 +246,14 @@
                         $scope.move3 = '../styles/images/AnalyseData/static-mobile2/Number3.jpg';
                         counter++;
                         break;
-                    case 33:
+                    case 28:
                         console.log("Bild 26");
                         $scope.menu = 'normal';
                         $scope.type = 'single';
                         $scope.image = '../styles/images/AnalyseData/static-mobile2/Number1.jpg';
                         counter++;
                         break;
-                    case 34:
+                    case 29:
                         console.log("Bild 27");
                         $scope.menu = 'normal';
                         $scope.type = 'juxtapose';
@@ -294,7 +261,7 @@
                         $scope.jux2 = '../styles/images/AnalyseData/static-mobile2/Number3.jpg';
                         counter++;
                         break;
-                    case 35:
+                    case 30:
                         console.log("Bild 28");
                         $scope.menu = 'normal';
                         $scope.type = 'single';
