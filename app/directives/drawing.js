@@ -61,10 +61,10 @@
                     };
 
                     Arrow.prototype.hitTestRotation = function(hitX, hitY) {
-                        var hit1 = ((hitX < this.x1)&&(hitX > this.x1+15) || (hitX > this.x1)&&(hitX < this.x1+15));
-                        var hit2 = ((hitY < this.y1)&&(hitY > this.y1+15) || (hitY > this.y1)&&(hitY < this.y1+15));
+                        var hit1 = ((hitX < (this.x1+15)) && (hitX > this.x1));
+                        var hit2 = ((hitY < (this.y1+15)) && (hitY > this.y1));
 
-                        return(hit1||hit2);
+                        return(hit1 && hit2);
                     };
 
                     CanvasApp();
@@ -103,6 +103,10 @@
                             var h;
                             var r = 0;
                             var isDown = false;
+                            var x;
+                            var y;
+                            var rotateA;
+                            var rotateB;
 
                             function init() {
                                 shapes = [];
@@ -119,7 +123,7 @@
                                 var arrow1 = new Arrow(100, 100, 50, 50);
                                 var arrow2 = new Arrow(200, 200, 150, 150);
                                 var arrow3 = new Arrow(300, 300, 250, 250);
-                                var arrow4 = new Arrow(150, 200, 100, 150);
+                                var arrow4 = new Arrow(150, 150, 100, 100);
                                 var arrow5 = new Arrow(200, 250, 150, 200);
 
                                 shapes.push(arrow1, arrow2, arrow3, arrow4, arrow5);
@@ -136,8 +140,11 @@
                                         dragging = true;
                                         dragIndex = i;
                                     }
+                                }
+                                for (i = 0; i < shapes.length; i++) {
                                     if (shapes[i].hitTestRotation(mouseX, mouseY)){
                                         rotating = true;
+                                        dragIndex = i;
                                     }
                                 }
 
@@ -160,8 +167,32 @@
                                     timer = setInterval(onTimerTick, 1000 / 30);
                                 }
 
-                                drawRotationHandle(false);
-                                isDown = rotating;
+                                if (rotating) {
+                                    drawRotationHandle(false);
+                                    isDown = rotating;
+
+                                    rotateA = ((shapes[shapes.length - 1].x1+shapes[shapes.length - 1].x2)/2);
+                                    rotateB = ((shapes[shapes.length - 1].y1+shapes[shapes.length - 1].y2)/2);
+
+                                    var dx = mouseX - rotateA;
+                                    var dy = mouseY - rotateB;
+                                    var r2 = Math.atan2(dx, dy);
+
+                                    var gap = Math.abs(shapes[shapes.length - 1].x1 - shapes[shapes.length - 1].x2);
+                                    var gapNonAbs = shapes[shapes.length - 1].x1 - shapes[shapes.length - 1].x2;
+                                    var radWinkel = (r2 / 180 * Math.PI);
+                                    var newX = (Math.cos(radWinkel)*gap);
+                                    var newY = (Math.sin(radWinkel)*gap);
+
+                                    shapes.push(shapes.splice(dragIndex, 1)[0]);
+
+                                    targetX = newX;
+                                    targetY = newY;
+                                    targetX2 = targetX + gapNonAbs;
+                                    targetY2 = targetY + gapNonAbs;
+
+                                    timer = setInterval(onTimerTick, 1000 / 30);
+                                }
 
                                 c.removeEventListener("mousedown", mouseDownListener, false);
                                 window.addEventListener("mouseup", mouseUpListener, false);
@@ -235,26 +266,56 @@
                                 if (!isDown) {
                                     return;
                                 }
+                                for(i=0;i<shapes.length;i++){
+                                    w = shapes[i].x1;
+                                    h = shapes[i].y1;
+                                    x = shapes[i].x2;
+                                    y = shapes[i].y2;
+                                    rotateA = ((w+x)/2);
+                                    rotateB = ((h+y)/2);
+                                    var dx = mouseX - rotateA;
+                                    var dy = mouseY - rotateB;
+                                    r = Math.atan2(dx, dy);
+                                }
 
-                                var dx = mouseX - cx;
-                                var dy = mouseY - cy;
-                                r = Math.atan2(dx, dy);
                                 initialise();
                             }
 
                             function drawShapes() {
-                                ctx.rotate(r);
                                 for (i = 0; i < shapes.length; i++) {
                                     shapes[i].drawToContext(ctx);
+                                    if (r != 0) {
+                                        rotation();
+                                        r=0;
+                                        initialise();
+                                    }
                                 }
-                                drawRotationHandle(true);
+                            }
+
+                            function rotation() {
+                                for(i = 0; i < shapes.length; i++){
+                                    w = shapes[i].x1;
+                                    h = shapes[i].y1;
+                                    x = shapes[i].x2;
+                                    y = shapes[i].y2;
+                                    rotateA = ((w+x)/2);
+                                    rotateB = ((h+y)/2);
+
+                                    ctx.translate(rotateA, rotateB);
+                                    ctx.rotate(r);
+                                    ctx.translate(-rotateA,-rotateB);
+                                    drawRotationHandle(true);
+                                }
                             }
 
                             function initialise() {
+                                ctx.save();
                                 var image = new Image();
                                 image.src = scope.plus;
+                                ctx.restore();
                                 ctx.drawImage(image, 0, 0, 300, 300);
                                 drawShapes();
+                                drawRotationHandle(true);
                             }
 
                             function drawRotationHandle(withFill){
@@ -262,10 +323,17 @@
                                 for(i=0;i<shapes.length;i++) {
                                     w = shapes[i].x1;
                                     h = shapes[i].y1;
+                                    x = shapes[i].x2;
+                                    y = shapes[i].y2;
+                                    rotateA = ((w+x)/2);
+                                    rotateB = ((h+y)/2);
 
                                     ctx.save();
-                                    ctx.translate(cx, cy);
-                                    ctx.rotate(r);
+                                    if(r!=0){
+                                        ctx.translate(rotateA, rotateB);
+                                        ctx.rotate(r);
+                                        ctx.translate(-rotateA,-rotateB);
+                                    }
                                     ctx.beginPath();
                                     ctx.moveTo(w-1, h);
                                     ctx.lineTo(w+5, h+6);

@@ -281,7 +281,7 @@
         $scope.data = [{
                 "direction": "1",
                 "stub": 10,
-                "color": "#76EE00"
+                "color": "#cc0000"
             }, {
                 "direction": "2",
                 "stub": 10,
