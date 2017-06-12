@@ -4,6 +4,12 @@ var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var mongoose = require('mongoose');
 
+//database connection
+mongoose.connect('mongodb://localhost:27017/crowdspy');
+var database = mongoose.connection;
+require('./api/models/round');
+require('./api/models/question');
+
 //  Bring in the routes for the API (delete the default routes)
 var routesApi = require('./api/routes/index');
 
@@ -26,10 +32,6 @@ var config = {
     httpPort: 3000,
     mongoPort: 27017
 };
-
-//database connection
-mongoose.connect('mongodb://localhost:' + config.mongoPort + '/crowdspy');
-var database = mongoose.connection;
 
 database.on('error', console.error.bind(console, 'connection error:'));
 database.once('open', function (callback) {
