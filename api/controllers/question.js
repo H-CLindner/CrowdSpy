@@ -13,7 +13,7 @@ module.exports.save = function(req, res){
     question.difficulty = req.body.difficulty;
     question.userId = req.body.userID;
 
-    round.question1 = question;
+    round.question1.push(question);
 
     round.save(function(err) {
         res.status(200);

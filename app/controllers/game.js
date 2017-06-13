@@ -17,7 +17,7 @@
             userID: ""
         };
 
-        //vm.countFirst = "";
+        vm.countFirst = "";
 
         var counter = 0;
         var ALPHABET = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -33,7 +33,6 @@
         $scope.type = "start";
         $scope.menu = "start";
         $scope.selected = "nothing";
-        $scope.difficulty = "nothing";
         $scope.movement = "nothing";
         $scope.userId = "";
 
@@ -41,7 +40,7 @@
                 switch (counter) {
                     case 0:
                         console.log("Bild 1");
-                        //$scope.userId = generateId();
+                        $scope.userId = generateId();
                         $scope.menu = 'count';
                         $scope.type = 'single';
                         $scope.image = '../styles/images/AnalyseData/Count1.png';
@@ -101,9 +100,9 @@
                         break;
                     case 7:
                         console.log("Bild 8");
+                        $scope.canvas2 = '../styles/images/AnalyseData/Density2.png';
                         $scope.menu = 'decision';
                         $scope.type = 'single';
-                        $scope.canvas2 = '../styles/images/AnalyseData/Density2.png';
                         $scope.image = '../styles/images/AnalyseData/Density2.png';
                         counter++;
                         break;
@@ -153,9 +152,9 @@
                         break;
                     case 13:
                         console.log("Bild 14");
+                        $scope.canvas2 = '../styles/images/AnalyseData/Density3.png';
                         $scope.menu = 'decision';
                         $scope.type = 'single';
-                        $scope.canvas2 = '../styles/images/AnalyseData/Density3.png';
                         $scope.image = '../styles/images/AnalyseData/Density3.png';
                         counter++;
                         break;
@@ -205,9 +204,9 @@
                         break;
                     case 19:
                         console.log("Bild 20");
+                        $scope.canvas2 = '../styles/images/AnalyseData/Density4.png';
                         $scope.menu = 'decision';
                         $scope.type = 'single';
-                        $scope.canvas2 = '../styles/images/AnalyseData/Density4.png';
                         $scope.image = '../styles/images/AnalyseData/Density4.png';
                         counter++;
                         break;
@@ -257,9 +256,9 @@
                         break;
                     case 25:
                         console.log("Bild 26");
+                        $scope.canvas2 = '../styles/images/AnalyseData/Density5.png';
                         $scope.menu = 'decision';
                         $scope.type = 'single';
-                        $scope.canvas2 = '../styles/images/AnalyseData/Density5.png';
                         $scope.image = '../styles/images/AnalyseData/Density5.png';
                         counter++;
                         break;
@@ -312,22 +311,25 @@
 
         $scope.countSave = function() {
 
-            /*
             vm.question.first = vm.countFirst;
+            console.log(vm.question.first);
             vm.question.second = "no value";
-            vm.question.difficulty = $scope.difficulty;
+            console.log(vm.question.second);
+            //vm.question.difficulty = vm.question.difficulty;
+            console.log(vm.question.difficulty);
             vm.question.userID = $scope.userId;
+            console.log(vm.question.userID);
 
             dataService
                 .save(vm.question)
-                .error(function(err) {
-                    alert(err);
-                })
                 .then(function(){
                     console.log("Frage gespeichert");
                     $scope.procedure();
-                });*/
-            $scope.procedure();
+                })
+                .catch(function (e) {
+                    console.log(e);
+                });
+            //$scope.procedure();
         };
 
         $scope.decisionSave = function(){

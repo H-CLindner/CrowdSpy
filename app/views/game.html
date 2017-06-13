@@ -116,17 +116,17 @@
 <div class="col-md-3" style="padding-left: 1cm; padding-bottom: 1cm" ng-if="menu == 'count'">
     <form>
         <h3>Type in how many people you see in the red box in the picture.</h3><br>
-        <input type="number" name="count"><br><br>
+        <input type="number" name="count" ng-model="vm.countFirst"><br><br>
         <h3>If you can't decide how many people there are just type in nothing.</h3><br>
     </form>
     <h3>Decide how difficult it was to answer the question</h3><br>
-    <p><b>Selected: {{difficulty}}</b></p><br>
-    <input type="checkbox" name="difficulty" ng-checked="difficulty == 'very hard'" ng-true-value="'very hard'" ng-model="difficulty" value="vhard"> It was very hard<br>
-    <input type="checkbox" name="difficulty" ng-checked="difficulty == 'hard'" ng-true-value="'hard'" ng-model="difficulty" value="hard"> It was very hard<br>
-    <input type="checkbox" name="difficulty" ng-checked="difficulty == 'normal'" ng-true-value="'normal'" ng-model="difficulty" value="dnormal"> It was normal<br>
-    <input type="checkbox" name="difficulty" ng-checked="difficulty == 'rather easy'" ng-true-value="'rather easy'" ng-model="difficulty" value="reasy"> It was rather easy<br>
-    <input type="checkbox" name="difficulty" ng-checked="difficulty == 'easy'" ng-true-value="'easy'" ng-model="difficulty" value="easy"> It was easy<br>
-    <input type="checkbox" name="difficulty" ng-checked="difficulty == 'very easy'" ng-true-value="'very easy'" ng-model="difficulty" value="veasy"> It was very easy<br><br>
+    <p><b>Selected: {{vm.question.difficulty}}</b></p><br>
+    <input type="checkbox" name="difficulty" ng-checked="difficulty == 'very hard'" ng-true-value="'very hard'" ng-model="vm.question.difficulty" value="vhard"> It was very hard<br>
+    <input type="checkbox" name="difficulty" ng-checked="difficulty == 'hard'" ng-true-value="'hard'" ng-model="vm.question.difficulty" value="hard"> It was very hard<br>
+    <input type="checkbox" name="difficulty" ng-checked="difficulty == 'normal'" ng-true-value="'normal'" ng-model="vm.question.difficulty" value="dnormal"> It was normal<br>
+    <input type="checkbox" name="difficulty" ng-checked="difficulty == 'rather easy'" ng-true-value="'rather easy'" ng-model="vm.question.difficulty" value="reasy"> It was rather easy<br>
+    <input type="checkbox" name="difficulty" ng-checked="difficulty == 'easy'" ng-true-value="'easy'" ng-model="vm.question.difficulty" value="easy"> It was easy<br>
+    <input type="checkbox" name="difficulty" ng-checked="difficulty == 'very easy'" ng-true-value="'very easy'" ng-model="vm.question.difficulty" value="veasy"> It was very easy<br><br>
     <button type="submit" class="btn btn-primary" ng-click="countSave()">Next</button>
 </div>
 
@@ -142,13 +142,13 @@
     <h3>Place the square where you think the density is the highest</h3><br><br>
     <my-square plus2="{{canvas2}}"></my-square><br><br>
     <h3>Decide how difficult it was to answer the question</h3><br>
-    <p><b>Selected: {{difficulty}}</b></p><br>
-    <input type="checkbox" name="difficulty" ng-checked="difficulty == 'very hard'" ng-true-value="'very hard'" ng-model="difficulty" value="vhard"> It was very hard<br>
-    <input type="checkbox" name="difficulty" ng-checked="difficulty == 'hard'" ng-true-value="'hard'" ng-model="difficulty" value="hard"> It was very hard<br>
-    <input type="checkbox" name="difficulty" ng-checked="difficulty == 'normal'" ng-true-value="'normal'" ng-model="difficulty" value="dnormal"> It was normal<br>
-    <input type="checkbox" name="difficulty" ng-checked="difficulty == 'rather easy'" ng-true-value="'rather easy'" ng-model="difficulty" value="reasy"> It was rather easy<br>
-    <input type="checkbox" name="difficulty" ng-checked="difficulty == 'easy'" ng-true-value="'easy'" ng-model="difficulty" value="easy"> It was easy<br>
-    <input type="checkbox" name="difficulty" ng-checked="difficulty == 'very easy'" ng-true-value="'very easy'" ng-model="difficulty" value="veasy"> It was very easy<br><br>
+    <p><b>Selected: {{vm.question.difficulty}}</b></p><br>
+    <input type="checkbox" name="difficulty" ng-checked="difficulty == 'very hard'" ng-true-value="'very hard'" ng-model="vm.question.difficulty" value="vhard"> It was very hard<br>
+    <input type="checkbox" name="difficulty" ng-checked="difficulty == 'hard'" ng-true-value="'hard'" ng-model="vm.question.difficulty" value="hard"> It was very hard<br>
+    <input type="checkbox" name="difficulty" ng-checked="difficulty == 'normal'" ng-true-value="'normal'" ng-model="vm.question.difficulty" value="dnormal"> It was normal<br>
+    <input type="checkbox" name="difficulty" ng-checked="difficulty == 'rather easy'" ng-true-value="'rather easy'" ng-model="vm.question.difficulty" value="reasy"> It was rather easy<br>
+    <input type="checkbox" name="difficulty" ng-checked="difficulty == 'easy'" ng-true-value="'easy'" ng-model="vm.question.difficulty" value="easy"> It was easy<br>
+    <input type="checkbox" name="difficulty" ng-checked="difficulty == 'very easy'" ng-true-value="'very easy'" ng-model="vm.question.difficulty" value="veasy"> It was very easy<br><br>
     <button type="submit" class="btn btn-primary" ng-click="decisionSave()">Next</button>
 </div>
 
@@ -160,13 +160,13 @@
     <h3>Place the arrows in that position in which the people are going</h3><br>
     <my-arrow plus={{canvas}}></my-arrow><br><br>
     <h3>Decide how difficult it was to answer the question</h3><br>
-    <p><b>Selected: {{difficulty}}</b></p><br>
-    <input type="checkbox" name="difficulty" ng-checked="difficulty == 'very hard'" ng-true-value="'very hard'" ng-model="difficulty" value="vhard"> It was very hard<br>
-    <input type="checkbox" name="difficulty" ng-checked="difficulty == 'hard'" ng-true-value="'hard'" ng-model="difficulty" value="hard"> It was hard<br>
-    <input type="checkbox" name="difficulty" ng-checked="difficulty == 'normal'" ng-true-value="'normal'" ng-model="difficulty" value="dnormal"> It was normal<br>
-    <input type="checkbox" name="difficulty" ng-checked="difficulty == 'rather easy'" ng-true-value="'rather easy'" ng-model="difficulty" value="reasy"> It was rather easy<br>
-    <input type="checkbox" name="difficulty" ng-checked="difficulty == 'easy'" ng-true-value="'easy'" ng-model="difficulty" value="easy"> It was easy<br>
-    <input type="checkbox" name="difficulty" ng-checked="difficulty == 'very easy'" ng-true-value="'very easy'" ng-model="difficulty" value="veasy"> It was very easy<br><br>
+    <p><b>Selected: {{vm.question.difficulty}}</b></p><br>
+    <input type="checkbox" name="difficulty" ng-checked="difficulty == 'very hard'" ng-true-value="'very hard'" ng-model="vm.question.difficulty" value="vhard"> It was very hard<br>
+    <input type="checkbox" name="difficulty" ng-checked="difficulty == 'hard'" ng-true-value="'hard'" ng-model="vm.question.difficulty" value="hard"> It was hard<br>
+    <input type="checkbox" name="difficulty" ng-checked="difficulty == 'normal'" ng-true-value="'normal'" ng-model="vm.question.difficulty" value="dnormal"> It was normal<br>
+    <input type="checkbox" name="difficulty" ng-checked="difficulty == 'rather easy'" ng-true-value="'rather easy'" ng-model="vm.question.difficulty" value="reasy"> It was rather easy<br>
+    <input type="checkbox" name="difficulty" ng-checked="difficulty == 'easy'" ng-true-value="'easy'" ng-model="vm.question.difficulty" value="easy"> It was easy<br>
+    <input type="checkbox" name="difficulty" ng-checked="difficulty == 'very easy'" ng-true-value="'very easy'" ng-model="vm.question.difficulty" value="veasy"> It was very easy<br><br>
     <button type="submit" class="btn btn-primary" ng-click="circleSave()">Next</button>
 </div>
 
@@ -176,12 +176,12 @@
     <input type="checkbox" name="movement" ng-checked="movement == 'moving'" ng-true-value="'moving'" ng-model="movement" value="moving"> Crowd is moving<br>
     <input type="checkbox" name="movement" ng-checked="movement == 'static'" ng-true-value="'static'" ng-model="movement" value="static"> Crowd is static<br>
     <h3>Decide how difficult it was to answer the question</h3><br>
-    <p><b>Selected: {{difficulty}}</b></p><br>
-    <input type="checkbox" name="difficulty" ng-checked="difficulty == 'very hard'" ng-true-value="'very hard'" ng-model="difficulty" value="vhard"> It was very hard<br>
-    <input type="checkbox" name="difficulty" ng-checked="difficulty == 'hard'" ng-true-value="'hard'" ng-model="difficulty" value="hard"> It was very hard<br>
-    <input type="checkbox" name="difficulty" ng-checked="difficulty == 'normal'" ng-true-value="'normal'" ng-model="difficulty" value="dnormal"> It was normal<br>
-    <input type="checkbox" name="difficulty" ng-checked="difficulty == 'rather easy'" ng-true-value="'rather easy'" ng-model="difficulty" value="reasy"> It was rather easy<br>
-    <input type="checkbox" name="difficulty" ng-checked="difficulty == 'easy'" ng-true-value="'easy'" ng-model="difficulty" value="easy"> It was easy<br>
-    <input type="checkbox" name="difficulty" ng-checked="difficulty == 'very easy'" ng-true-value="'very easy'" ng-model="difficulty" value="veasy"> It was very easy<br><br>
+    <p><b>Selected: {{vm.question.difficulty}}</b></p><br>
+    <input type="checkbox" name="difficulty" ng-checked="difficulty == 'very hard'" ng-true-value="'very hard'" ng-model="vm.question.difficulty" value="vhard"> It was very hard<br>
+    <input type="checkbox" name="difficulty" ng-checked="difficulty == 'hard'" ng-true-value="'hard'" ng-model="vm.question.difficulty" value="hard"> It was very hard<br>
+    <input type="checkbox" name="difficulty" ng-checked="difficulty == 'normal'" ng-true-value="'normal'" ng-model="vm.question.difficulty" value="dnormal"> It was normal<br>
+    <input type="checkbox" name="difficulty" ng-checked="difficulty == 'rather easy'" ng-true-value="'rather easy'" ng-model="vm.question.difficulty" value="reasy"> It was rather easy<br>
+    <input type="checkbox" name="difficulty" ng-checked="difficulty == 'easy'" ng-true-value="'easy'" ng-model="vm.question.difficulty" value="easy"> It was easy<br>
+    <input type="checkbox" name="difficulty" ng-checked="difficulty == 'very easy'" ng-true-value="'very easy'" ng-model="vm.question.difficulty" value="veasy"> It was very easy<br><br>
     <button type="submit" class="btn btn-primary" ng-click="movementSave()">Next</button>
 </div>
