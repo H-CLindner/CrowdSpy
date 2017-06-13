@@ -20,6 +20,8 @@
         //vm.countFirst = "";
 
         var counter = 0;
+        var ALPHABET = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        var ID_LENGTH = 8;
 
         $scope.image = '../styles/images/menschenmenge.jpg';
         $scope.single = "";
@@ -342,9 +344,6 @@
 
             $scope.procedure();
         };
-
-        var ALPHABET = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-        var ID_LENGTH = 8;
 
         var generateId = function() {
             var rtn = '';

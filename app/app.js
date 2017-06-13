@@ -19,11 +19,6 @@
                 controller: 'aboutCtrl',
                 controllerAs: 'vm'
             })
-            .when('/leaderboard', {
-                templateUrl: 'views/leaderboard.html',
-                controller: 'leaderboardCtrl',
-                controllerAs: 'vm'
-            })
             .when('/legalInfo', {
                 templateUrl: 'views/legalInfo.html',
                 controller: 'legalInfoCtrl',
