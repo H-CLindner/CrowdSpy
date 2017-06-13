@@ -6,10 +6,10 @@ var questionSchema = new mongoose.Schema({
         type: "String",
         required: true
     },
-    second:[{
+    second:{
         type: "String",
         required: false
-    }],
+    },
     difficulty:{
         type: "String",
         required: true

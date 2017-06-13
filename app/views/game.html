@@ -117,7 +117,7 @@
 <div class="col-md-3" style="padding-left: 1cm; padding-bottom: 1cm" ng-if="menu == 'count'">
     <form>
         <h3>Type in how many people you see in the red box in the picture.</h3><br>
-        <input type="number" name="count" ng-model="vm.countFirst"><br><br>
+        <input type="number" name="count"><br><br>
         <h3>If you can't decide how many people there are just type in nothing.</h3><br>
     </form>
     <h3>Decide how difficult it was to answer the question</h3><br>
@@ -153,17 +153,17 @@
     <button type="submit" class="btn btn-primary" ng-click="decisionSave()">Next</button>
 </div>
 
-<div class="col-md-3" style="padding-left: 1cm; padding-bottom: 1cm; width: 100%; height: 100%" ng-if="menu == 'circle'">
-    <h3>Some circle decision thing where the user has to decide in which direction the people are going</h3>
+<div class="col-md-3" style="padding-left: 1cm; padding-bottom: 1cm;" ng-if="menu == 'circle'">
+    <h3>Some circle decision thing where the user has to decide in which direction the people are going</h3><br>
     <div>
-    <my-chart chart-id="chart-1" source="data" type="pie"></my-chart><br><br><br>
+        <my-chart chart-id="chart-1" source="data" type="pie"></my-chart><br>
     </div>
-    <h3>Place the arrows in that position in which the people are going</h3><br><br>
+    <h3>Place the arrows in that position in which the people are going</h3><br>
     <my-arrow plus={{canvas}}></my-arrow><br><br>
     <h3>Decide how difficult it was to answer the question</h3><br>
     <p><b>Selected: {{difficulty}}</b></p><br>
     <input type="checkbox" name="difficulty" ng-checked="difficulty == 'very hard'" ng-true-value="'very hard'" ng-model="difficulty" value="vhard"> It was very hard<br>
-    <input type="checkbox" name="difficulty" ng-checked="difficulty == 'hard'" ng-true-value="'hard'" ng-model="difficulty" value="hard"> It was very hard<br>
+    <input type="checkbox" name="difficulty" ng-checked="difficulty == 'hard'" ng-true-value="'hard'" ng-model="difficulty" value="hard"> It was hard<br>
     <input type="checkbox" name="difficulty" ng-checked="difficulty == 'normal'" ng-true-value="'normal'" ng-model="difficulty" value="dnormal"> It was normal<br>
     <input type="checkbox" name="difficulty" ng-checked="difficulty == 'rather easy'" ng-true-value="'rather easy'" ng-model="difficulty" value="reasy"> It was rather easy<br>
     <input type="checkbox" name="difficulty" ng-checked="difficulty == 'easy'" ng-true-value="'easy'" ng-model="difficulty" value="easy"> It was easy<br>
@@ -185,8 +185,4 @@
     <input type="checkbox" name="difficulty" ng-checked="difficulty == 'easy'" ng-true-value="'easy'" ng-model="difficulty" value="easy"> It was easy<br>
     <input type="checkbox" name="difficulty" ng-checked="difficulty == 'very easy'" ng-true-value="'very easy'" ng-model="difficulty" value="veasy"> It was very easy<br><br>
     <button type="submit" class="btn btn-primary" ng-click="movementSave()">Next</button>
-</div>
-
-<div>
-    <my-chart chart-id="chart-1" source="data" type="pie"></my-chart><br><br><br>
 </div>

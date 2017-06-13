@@ -13,6 +13,8 @@
                 },
                 template: '<div id="{{chartId}}" style="min-width:300px; height:300px; margin:0 auto"></div>',
                 link: function (scope, element, attrs){
+                    setTimeout(function(){
+
                     var chart = false;
 
                     var initChart = function(){
@@ -46,8 +48,10 @@
                                 }
                             }]
                         });
+                        console.log(chart);
                     };
                     initChart();
+                    },50);
                 }
             }
         })

@@ -12,10 +12,12 @@
 
         vm.question = {
             first: "",
-            second: [""],
+            second: "",
             difficulty: "",
             userID: ""
         };
+
+        //vm.countFirst = "";
 
         var counter = 0;
 
@@ -37,7 +39,7 @@
                 switch (counter) {
                     case 0:
                         console.log("Bild 1");
-                        $scope.userId = generateId();
+                        //$scope.userId = generateId();
                         $scope.menu = 'count';
                         $scope.type = 'single';
                         $scope.image = '../styles/images/AnalyseData/Count1.png';
@@ -45,8 +47,8 @@
                         break;
                     case 1:
                         console.log("Bild 2");
-                        $scope.menu = 'decision';
                         $scope.canvas2 = '../styles/images/AnalyseData/Density1.png';
+                        $scope.menu = 'decision';
                         $scope.type = 'single';
                         $scope.image = '../styles/images/AnalyseData/Density1.png';
                         counter++;
@@ -69,7 +71,7 @@
                         $scope.type = 'single';
                         $scope.image = '../styles/images/AnalyseData/Direction1/Number1.jpg';
                         $scope.canvas = '../styles/images/AnalyseData/Direction1/Number1.jpg';
-                            counter++;
+                        counter++;
                         break;
                     case 4:
                         console.log("Bild 5");
@@ -78,7 +80,7 @@
                         $scope.jux1 = '../styles/images/AnalyseData/Direction1/Number1.jpg';
                         $scope.jux2 = '../styles/images/AnalyseData/Direction1/Number2.jpg';
                         $scope.canvas = '../styles/images/AnalyseData/Direction1/Number1.jpg';
-                            counter++;
+                        counter++;
                         break;
                     case 5:
                         console.log("Bild 6");
@@ -86,7 +88,7 @@
                         $scope.type = 'single';
                         $scope.image = '../styles/images/AnalyseData/Direction1/Dir1.gif';
                         $scope.canvas = '../styles/images/AnalyseData/Direction1/Number1.jpg';
-                            counter++;
+                        counter++;
                         break;
                     case 6:
                         console.log("Bild 7");
@@ -308,8 +310,7 @@
 
         $scope.countSave = function() {
 
-            vm.countFirst = "";
-
+            /*
             vm.question.first = vm.countFirst;
             vm.question.second = "no value";
             vm.question.difficulty = $scope.difficulty;
@@ -323,7 +324,8 @@
                 .then(function(){
                     console.log("Frage gespeichert");
                     $scope.procedure();
-                });
+                });*/
+            $scope.procedure();
         };
 
         $scope.decisionSave = function(){
@@ -352,40 +354,39 @@
             return rtn;
         };
 
-
         $scope.data = [{
-                "direction": "1",
-                "stub": 10,
-                "color": "#cc0000"
-            }, {
-                "direction": "2",
-                "stub": 10,
-                "color": "#76EE00"
-            }, {
-                "direction": "3",
-                "stub": 10,
-                "color": "#76EE00"
-            },{
-                "direction": "4",
-                "stub": 10,
-                "color": "#76EE00"
-            }, {
-                "direction": "5",
-                "stub": 10,
-                "color": "#76EE00"
-            }, {
-                "direction": "6",
-                "stub": 10,
-                "color": "#76EE00"
-            }, {
-                "direction": "7",
-                "stub": 10,
-                "color": "#76EE00"
-            }, {
-                "direction": "8",
-                "stub": 10,
-                "color": "#76EE00"
-            }];
+            "direction": "1",
+            "stub": 10,
+            "color": "#cc0000"
+        }, {
+            "direction": "2",
+            "stub": 10,
+            "color": "#76EE00"
+        }, {
+            "direction": "3",
+            "stub": 10,
+            "color": "#76EE00"
+        },{
+            "direction": "4",
+            "stub": 10,
+            "color": "#76EE00"
+        }, {
+            "direction": "5",
+            "stub": 10,
+            "color": "#76EE00"
+        }, {
+            "direction": "6",
+            "stub": 10,
+            "color": "#76EE00"
+        }, {
+            "direction": "7",
+            "stub": 10,
+            "color": "#76EE00"
+        }, {
+            "direction": "8",
+            "stub": 10,
+            "color": "#76EE00"
+        }];
     }
 
 })();
