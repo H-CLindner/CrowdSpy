@@ -60,13 +60,6 @@
                         return (hit1 && hit2);
                     };
 
-                    Arrow.prototype.hitTestRotation = function(hitX, hitY) {
-                        var hit1 = ((hitX < (this.x1+15)) && (hitX > this.x1));
-                        var hit2 = ((hitY < (this.y1+15)) && (hitY > this.y1));
-
-                        return(hit1 && hit2);
-                    };
-
                     CanvasApp();
 
                     function CanvasApp() {
@@ -96,17 +89,6 @@
                             var targetY2;
                             var timer;
                             var easeAmount;
-
-                            var cx = c.width / 2;
-                            var cy = c.height / 2;
-                            var w;
-                            var h;
-                            var r = 0;
-                            var isDown = false;
-                            var x;
-                            var y;
-                            var rotateA;
-                            var rotateB;
 
                             function init() {
                                 shapes = [];
@@ -141,12 +123,6 @@
                                         dragIndex = i;
                                     }
                                 }
-                                for (i = 0; i < shapes.length; i++) {
-                                    if (shapes[i].hitTestRotation(mouseX, mouseY)){
-                                        rotating = true;
-                                        dragIndex = i;
-                                    }
-                                }
 
                                 if (dragging) {
                                     window.addEventListener("mousemove", mouseMoveListener, false);
@@ -163,33 +139,6 @@
                                     targetY = mouseY - dragHoldY;
                                     targetX2 = mouseX - dragHoldX2;
                                     targetY2 = mouseY - dragHoldY2;
-
-                                    timer = setInterval(onTimerTick, 1000 / 30);
-                                }
-
-                                if (rotating) {
-                                    drawRotationHandle(false);
-                                    isDown = rotating;
-
-                                    rotateA = ((shapes[shapes.length - 1].x1+shapes[shapes.length - 1].x2)/2);
-                                    rotateB = ((shapes[shapes.length - 1].y1+shapes[shapes.length - 1].y2)/2);
-
-                                    var dx = mouseX - rotateA;
-                                    var dy = mouseY - rotateB;
-                                    var r2 = Math.atan2(dx, dy);
-
-                                    var gap = Math.abs(shapes[shapes.length - 1].x1 - shapes[shapes.length - 1].x2);
-                                    var gapNonAbs = shapes[shapes.length - 1].x1 - shapes[shapes.length - 1].x2;
-                                    var radWinkel = (r2 / 180 * Math.PI);
-                                    var newX = (Math.cos(radWinkel)*gap);
-                                    var newY = (Math.sin(radWinkel)*gap);
-
-                                    shapes.push(shapes.splice(dragIndex, 1)[0]);
-
-                                    targetX = newX;
-                                    targetY = newY;
-                                    targetX2 = targetX + gapNonAbs;
-                                    targetY2 = targetY + gapNonAbs;
 
                                     timer = setInterval(onTimerTick, 1000 / 30);
                                 }
@@ -230,7 +179,6 @@
                                     dragging = false;
                                     window.removeEventListener("mousemove", mouseMoveListener, false);
                                 }
-                                isDown = false;
                             }
 
                             function mouseMoveListener(evt) {
@@ -263,97 +211,20 @@
                                 targetX2 = posX2;
                                 targetY2 = posY2;
 
-                                if (!isDown) {
-                                    return;
-                                }
-                                for(i=0;i<shapes.length;i++){
-                                    w = shapes[i].x1;
-                                    h = shapes[i].y1;
-                                    x = shapes[i].x2;
-                                    y = shapes[i].y2;
-                                    rotateA = ((w+x)/2);
-                                    rotateB = ((h+y)/2);
-                                    var dx = mouseX - rotateA;
-                                    var dy = mouseY - rotateB;
-                                    r = Math.atan2(dx, dy);
-                                }
-
                                 initialise();
                             }
 
                             function drawShapes() {
                                 for (i = 0; i < shapes.length; i++) {
                                     shapes[i].drawToContext(ctx);
-                                    if (r != 0) {
-                                        rotation();
-                                        r=0;
-                                        initialise();
-                                    }
-                                }
-                            }
-
-                            function rotation() {
-                                for(i = 0; i < shapes.length; i++){
-                                    w = shapes[i].x1;
-                                    h = shapes[i].y1;
-                                    x = shapes[i].x2;
-                                    y = shapes[i].y2;
-                                    rotateA = ((w+x)/2);
-                                    rotateB = ((h+y)/2);
-
-                                    ctx.translate(rotateA, rotateB);
-                                    ctx.rotate(r);
-                                    ctx.translate(-rotateA,-rotateB);
-                                    drawRotationHandle(true);
                                 }
                             }
 
                             function initialise() {
-                                ctx.save();
                                 var image = new Image();
                                 image.src = scope.plus;
-                                ctx.restore();
                                 ctx.drawImage(image, 0, 0, 300, 300);
                                 drawShapes();
-                                drawRotationHandle(true);
-                            }
-
-                            function drawRotationHandle(withFill){
-
-                                for(i=0;i<shapes.length;i++) {
-                                    w = shapes[i].x1;
-                                    h = shapes[i].y1;
-                                    x = shapes[i].x2;
-                                    y = shapes[i].y2;
-                                    rotateA = ((w+x)/2);
-                                    rotateB = ((h+y)/2);
-
-                                    ctx.save();
-                                    if(r!=0){
-                                        ctx.translate(rotateA, rotateB);
-                                        ctx.rotate(r);
-                                        ctx.translate(-rotateA,-rotateB);
-                                    }
-                                    ctx.beginPath();
-                                    ctx.moveTo(w-1, h);
-                                    ctx.lineTo(w+5, h+6);
-                                    ctx.lineTo(w+10, h);
-                                    ctx.lineTo(w+15, h+5);
-                                    ctx.lineTo(w+5, h+15);
-                                    ctx.lineTo(w, h+10);
-                                    ctx.lineTo(w+6, h+5);
-                                    ctx.lineTo(w, h-1);
-                                    ctx.closePath();
-                                    if (withFill) {
-                                        ctx.fillStyle = "blue";
-                                        ctx.fill();
-                                    }
-                                    ctx.restore();
-                                }
-                            }
-
-                            function MouseOutListener(e) {
-                                isDown = false;
                             }
                         }
                     }
