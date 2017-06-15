@@ -8,7 +8,8 @@
                 restrict: 'E',
                 scope: {
                     plus: '@',
-                    setFn: '&'
+                    setFn: '&',
+                    setFn2: '&'
                 },
                 template: '<canvas id="canvas" height="300" width="300" style="display:block; margin:1em auto; border:1px solid black; background-size: 100% 100%;"></canvas>',
                 link: function (scope, element, attrs) {
@@ -256,9 +257,14 @@
 
                             scope.clearCanvas = function(){
                                 shapes = [];
-                                initialise();
+                                CanvasApp();
+                            };
+                            scope.clearArrow = function(){
+                               shapes.splice(shapes.length-1, 1);
+                               initialise();
                             };
                             scope.setFn({theDirFn: scope.clearCanvas});
+                            scope.setFn2({theDirFn2: scope.clearArrow});
                         }
                     }
                 }

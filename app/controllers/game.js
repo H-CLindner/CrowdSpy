@@ -36,6 +36,7 @@
         $scope.selected = "nothing";
         $scope.movement = "nothing";
         $scope.userId = "";
+        $scope.coords = "";
 
         $scope.procedure = function() {
                 switch (counter) {
@@ -337,7 +338,6 @@
                 alert("please fill in all the blanks.");
             }
 
-
             vm.question.first = vm.selected;
             vm.question.second = "";
             vm.question.userID = $scope.userId;
@@ -365,6 +365,10 @@
 
         $scope.setDirectiveFn = function(clearCanvas) {
             $scope.clearCanvas = clearCanvas;
+        };
+
+        $scope.setDirectiveFn2 = function(clearArrow) {
+            $scope.clearArrow = clearArrow;
         };
 
         $scope.data = [{

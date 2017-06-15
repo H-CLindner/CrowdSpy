@@ -158,8 +158,9 @@
         <my-chart chart-id="chart-1" source="data" type="pie"></my-chart><br>
     </div>
     <h3>Place the arrows in that position in which the people are going</h3><br>
-    <my-arrow plus={{canvas}} set-fn="setDirectiveFn(theDirFn)"></my-arrow><br>
-    <button type="submit" class="btn btn-primary" ng-click="clearCanvas()">Clear</button><br>
+    <my-arrow plus={{canvas}} set-fn="setDirectiveFn(theDirFn)" set-fn2="setDirectiveFn2(theDirFn2)"></my-arrow><br>
+    <button type="submit" class="btn btn-primary" ng-click="clearCanvas()">Clear All</button>
+    <button type="submit" class="btn btn-primary" ng-click="clearArrow()">Clear Last Arrow</button><br>
     <h3>Decide how difficult it was to answer the question</h3><br>
     <p><b>Selected: {{vm.question.difficulty}}</b></p><br>
     <input type="checkbox" name="difficulty" ng-checked="difficulty == 'very hard'" ng-true-value="'very hard'" ng-model="vm.question.difficulty" value="vhard"> It was very hard<br>
