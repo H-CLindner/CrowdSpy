@@ -51,7 +51,6 @@
                         context.stroke();
                         context.fillStyle = "#cc0000";
                         context.fill();
-                        context.restore();
                     };
 
                     Arrow.prototype.hitTest = function (hitX, hitY) {
@@ -82,7 +81,11 @@
                             var dragHoldX2;
                             var dragHoldY2;
                             var dragging;
-                            var rotating;
+                            var drawing;
+                            var startArrowX;
+                            var startArrowY;
+                            var endArrowX;
+                            var endArrowY;
                             var targetX;
                             var targetY;
                             var targetX2;
@@ -101,14 +104,13 @@
                                 c.addEventListener("mousedown", mouseDownListener, false);
                             }
 
-                            function makeArrows() {
-                                var arrow1 = new Arrow(100, 100, 50, 50);
-                                var arrow2 = new Arrow(200, 200, 150, 150);
-                                var arrow3 = new Arrow(300, 300, 250, 250);
-                                var arrow4 = new Arrow(150, 150, 100, 100);
-                                var arrow5 = new Arrow(200, 250, 150, 200);
+                            function makeArrows(startX, startY, endX, endY) {
 
-                                shapes.push(arrow1, arrow2, arrow3, arrow4, arrow5);
+                                shapes.push(new Arrow(startX, startY, endX, endY));
+
+                                if (shapes.length > 5){
+                                    shapes = shapes.slice(0,6);
+                                }
                             }
 
                             function mouseDownListener(evt) {
@@ -122,6 +124,11 @@
                                         dragging = true;
                                         dragIndex = i;
                                     }
+                                    else {
+                                        drawing = true;
+                                        startArrowX = mouseX;
+                                        startArrowY = mouseY;
+                                    }
                                 }
 
                                 if (dragging) {
@@ -134,13 +141,23 @@
                                     dragHoldX2 = mouseX - shapes[shapes.length - 1].x2;
                                     dragHoldY2 = mouseY - shapes[shapes.length - 1].y2;
 
-
                                     targetX = mouseX - dragHoldX;
                                     targetY = mouseY - dragHoldY;
                                     targetX2 = mouseX - dragHoldX2;
                                     targetY2 = mouseY - dragHoldY2;
 
                                     timer = setInterval(onTimerTick, 1000 / 30);
+                                }
+
+                                if (drawing) {
+                                    window.addEventListener("mousemove", mouseMoveListener, false);
+
+                                    dragHoldX = mouseX - startArrowX;
+                                    dragHoldY = mouseY - startArrowY;
+
+                                    endArrowX = mouseX - dragHoldX;
+                                    endArrowY = mouseY - dragHoldY;
+
                                 }
 
                                 c.removeEventListener("mousedown", mouseDownListener, false);
@@ -179,6 +196,12 @@
                                     dragging = false;
                                     window.removeEventListener("mousemove", mouseMoveListener, false);
                                 }
+                                if (drawing) {
+                                    drawing = false;
+                                    window.removeEventListener("mousemove", mouseMoveListener, false);
+                                    makeArrows(startArrowX, startArrowY, endArrowX, endArrowY);
+                                    initialise();
+                                }
                             }
 
                             function mouseMoveListener(evt) {
@@ -210,6 +233,9 @@
                                 targetY = posY;
                                 targetX2 = posX2;
                                 targetY2 = posY2;
+
+                                endArrowX = posX;
+                                endArrowY = posY;
 
                                 initialise();
                             }

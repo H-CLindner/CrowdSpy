@@ -312,13 +312,9 @@
         $scope.countSave = function() {
 
             vm.question.first = vm.countFirst;
-            console.log(vm.question.first);
             vm.question.second = "no value";
-            console.log(vm.question.second);
             //vm.question.difficulty = vm.question.difficulty;
-            console.log(vm.question.difficulty);
             vm.question.userID = $scope.userId;
-            console.log(vm.question.userID);
 
             dataService
                 .save(vm.question)
