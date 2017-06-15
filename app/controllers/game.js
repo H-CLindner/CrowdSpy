@@ -4,9 +4,9 @@
         .module('crowdspy')
         .controller('gameCtrl', gameCtrl);
 
-    gameCtrl.$inject = ['$scope', 'dataService', '$location'];
+    gameCtrl.$inject = ['$scope', 'dataService', '$timeout'];
 
-    function gameCtrl ($scope, dataService, $location) {
+    function gameCtrl ($scope, dataService, $timeout) {
 
         var vm = this;
 
@@ -18,6 +18,7 @@
         };
 
         vm.countFirst = "";
+        vm.selected = "";
 
         var counter = 0;
         var ALPHABET = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -311,9 +312,12 @@
 
         $scope.countSave = function() {
 
+            if(vm.countFirst == "" && vm.question.difficulty == ""){
+                alert("please fill in all the blanks.");
+            }
+
             vm.question.first = vm.countFirst;
             vm.question.second = "no value";
-            //vm.question.difficulty = vm.question.difficulty;
             vm.question.userID = $scope.userId;
 
             dataService
@@ -325,10 +329,18 @@
                 .catch(function (e) {
                     console.log(e);
                 });
-            //$scope.procedure();
         };
 
         $scope.decisionSave = function(){
+
+            if(vm.selected == "" && vm.question.difficulty == ""){
+                alert("please fill in all the blanks.");
+            }
+
+
+            vm.question.first = vm.selected;
+            vm.question.second = "";
+            vm.question.userID = $scope.userId;
 
             $scope.procedure();
         };
@@ -349,6 +361,10 @@
                 rtn += ALPHABET.charAt(Math.floor(Math.random() * ALPHABET.length));
             }
             return rtn;
+        };
+
+        $scope.setDirectiveFn = function(clearCanvas) {
+            $scope.clearCanvas = clearCanvas;
         };
 
         $scope.data = [{

@@ -7,7 +7,8 @@
             return {
                 restrict: 'E',
                 scope: {
-                    plus: '@'
+                    plus: '@',
+                    setFn: '&'
                 },
                 template: '<canvas id="canvas" height="300" width="300" style="display:block; margin:1em auto; border:1px solid black; background-size: 100% 100%;"></canvas>',
                 link: function (scope, element, attrs) {
@@ -252,6 +253,12 @@
                                 ctx.drawImage(image, 0, 0, 300, 300);
                                 drawShapes();
                             }
+
+                            scope.clearCanvas = function(){
+                                shapes = [];
+                                initialise();
+                            };
+                            scope.setFn({theDirFn: scope.clearCanvas});
                         }
                     }
                 }
