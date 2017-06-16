@@ -2,8 +2,8 @@
 
     angular
         .module("crowdspy")
-        .directive('myArrow',
-        function(){
+        .directive('myArrow',['dataService',
+        function(dataService){
             return {
                 restrict: 'E',
                 scope: {
@@ -94,8 +94,10 @@
                             var targetY2;
                             var timer;
                             var easeAmount;
+                            var arrows;
 
                             function init() {
+                                arrows = [];
                                 shapes = [];
                                 easeAmount = 0.5;
 
@@ -113,6 +115,7 @@
                                 if (shapes.length > 5){
                                     shapes = shapes.slice(0,6);
                                 }
+                                dataService.setArrowCoords(shapes);
                             }
 
                             function mouseDownListener(evt) {
@@ -269,6 +272,6 @@
                     }
                 }
             }
-        });
+        }]);
 
 })();

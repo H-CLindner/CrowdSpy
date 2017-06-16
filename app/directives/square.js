@@ -2,8 +2,8 @@
 
     angular
         .module("crowdspy")
-        .directive('mySquare',
-            function(){
+        .directive('mySquare',['dataService',
+            function(dataService){
                 return {
                     restrict: 'E',
                     scope: {
@@ -159,6 +159,10 @@
                                     function drawShapes() {
                                         for (i = 0; i < shapes.length; i++) {
                                             shapes[i].drawToContext(ctx);
+                                            var xCoord = shapes[i].x.toString();
+                                            var yCoord = shapes[i].y.toString();
+                                            var coords = xCoord +","+ yCoord;
+                                            dataService.setSquareCoords(coords);
                                         }
                                     }
 
@@ -175,6 +179,6 @@
 
                     }
                 }
-                });
+                }]);
 
 })();

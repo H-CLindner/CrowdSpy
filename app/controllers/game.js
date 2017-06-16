@@ -19,6 +19,7 @@
 
         vm.countFirst = "";
         vm.selected = "";
+        vm.movement = "";
 
         var counter = 0;
         var ALPHABET = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -313,46 +314,99 @@
 
         $scope.countSave = function() {
 
-            if(vm.countFirst == "" && vm.question.difficulty == ""){
+            if(vm.countFirst == "" || vm.question.difficulty == ""){
                 alert("please fill in all the blanks.");
-            }
+            } //else {
 
-            vm.question.first = vm.countFirst;
-            vm.question.second = "no value";
-            vm.question.userID = $scope.userId;
+                vm.question.first = vm.countFirst;
+                vm.question.second = "no value";
+                vm.question.userID = $scope.userId;
 
-            dataService
-                .save(vm.question)
-                .then(function(){
-                    console.log("Frage gespeichert");
-                    $scope.procedure();
-                })
-                .catch(function (e) {
-                    console.log(e);
-                });
+                dataService
+                    .save(vm.question)
+                    .then(function () {
+                        console.log("Frage gespeichert");
+                        $scope.procedure();
+                    })
+                    .catch(function (e) {
+                        console.log(e);
+                    });
+            //}
         };
 
         $scope.decisionSave = function(){
 
-            if(vm.selected == "" && vm.question.difficulty == ""){
+            if(vm.selected == "" || vm.question.difficulty == ""){
                 alert("please fill in all the blanks.");
+            } else {
+
+                var coords = dataService.getSquareCoords();
+
+                vm.question.first = vm.selected;
+                vm.question.second = coords;
+                vm.question.userID = $scope.userId;
+
+                dataService
+                    .save(vm.question)
+                    .then(function (){
+                        console.log("Frage gespeichert");
+                        $scope.procedure();
+                    })
+                    .catch(function (e) {
+                        console.log(e);
+                    });
             }
-
-            vm.question.first = vm.selected;
-            vm.question.second = "";
-            vm.question.userID = $scope.userId;
-
-            $scope.procedure();
         };
 
         $scope.circleSave = function(){
 
-            $scope.procedure();
+            var coords = dataService.getArrowCoords();
+
+            var chart = dataService.getChartValue();
+            console.log(chart);
+
+            if(coords == "" || vm.question.difficulty == ""){
+                alert("please fill in all the blanks and draw at least one arrow.");
+            } else {
+                var coordsJoined = coords.join();
+                console.log(coordsJoined);
+
+                vm.question.first = chart;
+                vm.question.second = coordsJoined;
+                vm.question.userID = $scope.userId;
+
+                dataService
+                    .save(vm.question)
+                    .then(function (){
+                        console.log("Frage gespeichert");
+                        $scope.procedure();
+                    })
+                    .catch(function (e) {
+                        console.log(e);
+                    });
+            }
         };
 
         $scope.movementSave = function(){
 
-            $scope.procedure();
+            if(vm.movement == "" || vm.question.difficulty == ""){
+                alert("please fill in all the blanks.");
+            } else {
+
+                vm.question.first = vm.movement;
+                vm.question.second = "no value";
+                vm.question.userID = $scope.userId;
+
+                dataService
+                    .save(vm.question)
+                    .then(function (){
+                        console.log("Frage gespeichert");
+                        $scope.procedure();
+                    })
+                    .catch(function (e) {
+                        console.log(e);
+                    });
+            }
         };
 
         var generateId = function() {

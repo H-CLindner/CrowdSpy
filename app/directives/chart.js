@@ -2,8 +2,8 @@
 
     angular
         .module("crowdspy")
-        .directive('myChart',
-        function(){
+        .directive('myChart',['dataService',
+        function(dataService){
             return{
                 restrict: 'E',
                 scope: {
@@ -44,6 +44,11 @@
                                     else {
                                         dp[chart.colorField] = "#76EE00";
                                     }
+                                    for(i = 0; i < scope.source.length; i++) {
+                                        if(scope.source[i].color == "#cc0000"){
+                                            dataService.setChartValue(scope.source[i].direction);
+                                        }
+                                    }
                                     e.chart.validateData();
                                 }
                             }]
@@ -53,6 +58,6 @@
                     },50);
                 }
             }
-        })
+        }]);
 
 })();
