@@ -11,9 +11,11 @@
         var squareCoords = "";
         var arrowCoords = "";
         var arrows = [];
+        var ALPHABET = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        var ID_LENGTH = 8;
 
-        var save = function(question) {
-            return $http.post('/api/save', question);
+        var save = function(question, count) {
+            return $http.post('/api/save/'+count, question);
         };
 
         function setSquareCoords(coords){
@@ -59,6 +61,14 @@
             return self.indexOf(value) === index;
         }
 
+        var generateId = function() {
+            var rtn = '';
+            for (var i = 0; i < ID_LENGTH; i++) {
+                rtn += ALPHABET.charAt(Math.floor(Math.random() * ALPHABET.length));
+            }
+            return rtn;
+        };
+
         return{
             save: save,
             setSquareCoords: setSquareCoords,
@@ -66,7 +76,8 @@
             setArrowCoords: setArrowCoords,
             getArrowCoords: getArrowCoords,
             setChartValue: setChartValue,
-            getChartValue: getChartValue
+            getChartValue: getChartValue,
+            generateId: generateId
         };
     }
 

@@ -6,7 +6,7 @@ var roundSchema = new mongoose.Schema({
 
     question1: {
         type: [questionSchema],
-        required: true
+        required: false
     },
 
     question2: {

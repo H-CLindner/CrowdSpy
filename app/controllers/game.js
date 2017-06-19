@@ -22,8 +22,6 @@
         vm.movement = "";
 
         var counter = 0;
-        var ALPHABET = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-        var ID_LENGTH = 8;
 
         $scope.image = '../styles/images/menschenmenge.jpg';
         $scope.single = "";
@@ -36,14 +34,14 @@
         $scope.menu = "start";
         $scope.selected = "nothing";
         $scope.movement = "nothing";
-        $scope.userId = "";
+        $scope.idGenerated = dataService.generateId();
+        $scope.userId = $scope.idGenerated;
         $scope.coords = "";
 
         $scope.procedure = function() {
                 switch (counter) {
                     case 0:
                         console.log("Bild 1");
-                        $scope.userId = generateId();
                         $scope.menu = 'count';
                         $scope.type = 'single';
                         $scope.image = '../styles/images/AnalyseData/Count1.png';
@@ -316,14 +314,16 @@
 
             if(vm.countFirst == "" || vm.question.difficulty == ""){
                 alert("please fill in all the blanks.");
-            } //else {
+            } else {
 
                 vm.question.first = vm.countFirst;
                 vm.question.second = "no value";
                 vm.question.userID = $scope.userId;
+                console.log(vm.question.userID);
+                var number = counter;
 
                 dataService
-                    .save(vm.question)
+                    .save(vm.question, number)
                     .then(function () {
                         console.log("Frage gespeichert");
                         $scope.procedure();
@@ -331,7 +331,7 @@
                     .catch(function (e) {
                         console.log(e);
                     });
-            //}
+            }
         };
 
         $scope.decisionSave = function(){
@@ -345,9 +345,15 @@
                 vm.question.first = vm.selected;
                 vm.question.second = coords;
                 vm.question.userID = $scope.userId;
+                var number = counter;
+                console.log(vm.question.first);
+                console.log(vm.question.second);
+                console.log(vm.question.difficulty);
+                console.log(vm.question.userID);
+
 
                 dataService
-                    .save(vm.question)
+                    .save(vm.question, number)
                     .then(function (){
                         console.log("Frage gespeichert");
                         $scope.procedure();
@@ -363,7 +369,6 @@
             var coords = dataService.getArrowCoords();
 
             var chart = dataService.getChartValue();
-            console.log(chart);
 
             if(coords == "" || vm.question.difficulty == ""){
                 alert("please fill in all the blanks and draw at least one arrow.");
@@ -374,9 +379,10 @@
                 vm.question.first = chart;
                 vm.question.second = coordsJoined;
                 vm.question.userID = $scope.userId;
+                var number = counter;
 
                 dataService
-                    .save(vm.question)
+                    .save(vm.question, number)
                     .then(function (){
                         console.log("Frage gespeichert");
                         $scope.procedure();
@@ -396,9 +402,10 @@
                 vm.question.first = vm.movement;
                 vm.question.second = "no value";
                 vm.question.userID = $scope.userId;
+                var number = counter;
 
                 dataService
-                    .save(vm.question)
+                    .save(vm.question, number)
                     .then(function (){
                         console.log("Frage gespeichert");
                         $scope.procedure();
@@ -407,14 +414,6 @@
                         console.log(e);
                     });
             }
-        };
-
-        var generateId = function() {
-            var rtn = '';
-            for (var i = 0; i < ID_LENGTH; i++) {
-                rtn += ALPHABET.charAt(Math.floor(Math.random() * ALPHABET.length));
-            }
-            return rtn;
         };
 
         $scope.setDirectiveFn = function(clearCanvas) {

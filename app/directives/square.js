@@ -11,58 +11,59 @@
                     },
                     template: '<canvas id="canvas2" height="300" width="300" style="display:block; margin:1em auto; border:1px solid black; background-size: 100% 100%;"></canvas>',
                     link: function (scope, element, attrs) {
+                        setTimeout(function() {
 
-                        function Square(posX, posY) {
-                            this.x = posX;
-                            this.y = posY;
-                            this.radius = 40;
-                        }
+                            function Square(posX, posY) {
+                                this.x = posX;
+                                this.y = posY;
+                                this.radius = 40;
+                            }
 
-                        Square.prototype.hitTest = function(hitX,hitY) {
-                            return((hitX > this.x - this.radius)&&(hitX < this.x + (this.radius*2))&&(hitY > this.y - this.radius)&&(hitY < this.y + this.radius));
-                        };
+                            Square.prototype.hitTest = function (hitX, hitY) {
+                                return ((hitX > this.x - this.radius) && (hitX < this.x + (this.radius * 2)) && (hitY > this.y - this.radius) && (hitY < this.y + this.radius));
+                            };
 
-                        Square.prototype.drawToContext = function(theContext) {
-                            theContext.strokeStyle = "#FF0000";
-                            theContext.strokeRect(this.x - this.radius, this.y - this.radius, 3*this.radius, 2*this.radius);
-                        };
+                            Square.prototype.drawToContext = function (theContext) {
+                                theContext.strokeStyle = "#FF0000";
+                                theContext.strokeRect(this.x - this.radius, this.y - this.radius, 3 * this.radius, 2 * this.radius);
+                            };
 
-                        CanvasApp();
+                            CanvasApp();
 
-                        function CanvasApp() {
+                            function CanvasApp() {
 
-                            var c = document.getElementById('canvas2');
-                            var ctx = c.getContext("2d");
-                            dragging();
+                                var c = document.getElementById('canvas2');
+                                var ctx = c.getContext("2d");
+                                dragging();
 
-                            function dragging() {
+                                function dragging() {
 
-                                init();
+                                    init();
 
-                                var i;
-                                var shapes;
-                                var mouseX;
-                                var mouseY;
-                                var dragIndex;
-                                var dragHoldX;
-                                var dragHoldY;
-                                var dragging;
-                                var targetX;
-                                var targetY;
-                                var timer;
-                                var easeAmount;
+                                    var i;
+                                    var shapes;
+                                    var mouseX;
+                                    var mouseY;
+                                    var dragIndex;
+                                    var dragHoldX;
+                                    var dragHoldY;
+                                    var dragging;
+                                    var targetX;
+                                    var targetY;
+                                    var timer;
+                                    var easeAmount;
 
-                                function init() {
-                                    shapes = [];
-                                    easeAmount = 0.5;
+                                    function init() {
+                                        shapes = [];
+                                        easeAmount = 0.5;
 
-                                    makeSquare();
+                                        makeSquare();
 
-                                    initialise();
+                                        initialise();
 
-                                    c.addEventListener("mousedown", mouseDownListener, false);
+                                        c.addEventListener("mousedown", mouseDownListener, false);
 
-                                }
+                                    }
 
                                     function makeSquare() {
                                         var square1 = new Square(100, 100);
@@ -113,7 +114,7 @@
                                         shapes[shapes.length - 1].x = shapes[shapes.length - 1].x + easeAmount * (targetX - shapes[shapes.length - 1].x);
                                         shapes[shapes.length - 1].y = shapes[shapes.length - 1].y + easeAmount * (targetY - shapes[shapes.length - 1].y);
 
-                                        if ((!dragging)&&(Math.abs(shapes[shapes.length-1].x - targetX) < 0.1) && (Math.abs(shapes[shapes.length-1].y - targetY) < 0.1)) {
+                                        if ((!dragging) && (Math.abs(shapes[shapes.length - 1].x - targetX) < 0.1) && (Math.abs(shapes[shapes.length - 1].y - targetY) < 0.1)) {
                                             shapes[shapes.length - 1].x = targetX;
                                             shapes[shapes.length - 1].y = targetY;
                                             //stop timer:
@@ -161,7 +162,7 @@
                                             shapes[i].drawToContext(ctx);
                                             var xCoord = shapes[i].x.toString();
                                             var yCoord = shapes[i].y.toString();
-                                            var coords = xCoord +","+ yCoord;
+                                            var coords = xCoord + "," + yCoord;
                                             dataService.setSquareCoords(coords);
                                         }
                                     }
@@ -173,10 +174,10 @@
                                         drawShapes();
                                     }
 
+                                }
+
                             }
-
-                        }
-
+                        },50);
                     }
                 }
                 }]);
