@@ -41,8 +41,17 @@
                 }
             }
             var uniqueArrows = arrows.filter(onlyUnique);
-            console.log(uniqueArrows);
             arrowCoords = uniqueArrows;
+            console.log(arrowCoords);
+        }
+
+        function editArrowCoords(type){
+            if(type == "all"){
+                arrows = [];
+            } else if(type == "single"){
+                arrows.pop();
+            }
+            console.log(arrowCoords);
         }
 
         function getArrowCoords(){
@@ -74,6 +83,7 @@
             setSquareCoords: setSquareCoords,
             getSquareCoords: getSquareCoords,
             setArrowCoords: setArrowCoords,
+            editArrowCoords: editArrowCoords,
             getArrowCoords: getArrowCoords,
             setChartValue: setChartValue,
             getChartValue: getChartValue,

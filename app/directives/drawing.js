@@ -263,11 +263,12 @@
                                 scope.clearCanvas = function () {
                                     shapes = [];
                                     CanvasApp();
+                                    dataService.editArrowCoords("all");
                                 };
                                 scope.clearArrow = function () {
                                     shapes.splice(shapes.length - 1, 1);
                                     initialise();
-                                    //funktion um arrows im dataservice wegzunehmen
+                                    dataService.editArrowCoords("single");
                                 };
                                 scope.setFn({theDirFn: scope.clearCanvas});
                                 scope.setFn2({theDirFn2: scope.clearArrow});

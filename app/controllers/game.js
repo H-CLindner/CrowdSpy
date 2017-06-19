@@ -370,6 +370,7 @@
                 alert("please fill in all the blanks and draw at least one arrow.");
             } else {
                 var coordsJoined = coords.join();
+                console.log(coordsJoined);
 
                 vm.question.first = chart;
                 vm.question.second = coordsJoined;

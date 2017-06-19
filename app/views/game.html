@@ -132,11 +132,11 @@
 <div class="col-md-3" style="padding-left: 1cm; padding-bottom: 1cm" ng-if="menu == 'decision'">
         <h3>Decide in your own opinion how dense the shown crowd is</h3><br>
     <p><b>Selected: {{vm.selected}}</b></p><br>
-        <input type="checkbox" name="density" ng-checked="selected == 'dangerous'" ng-true-value="'dangerous'" ng-model="vm.selected" value="dangerous"> It is dangerously crowded (>6 people / m^2)<br>
-        <input type="checkbox" name="density" ng-checked="selected == 'crowded'" ng-true-value="'crowded'" ng-model="vm.selected" value="crowded"> It is crowded (5-6 people / m^2)<br>
-        <input type="checkbox" name="density" ng-checked="selected == 'medium'" ng-true-value="'medium'" ng-model="vm.selected" value="medium"> It is medium dense (4 people / m^2)<br>
-        <input type="checkbox" name="density" ng-checked="selected == 'sparse'" ng-true-value="'sparse'" ng-model="vm.selected" value="sparse"> It is a sparse crowd (2 people / m^2)<br>
-        <input type="checkbox" name="density" ng-checked="selected == 'zero'" ng-true-value="'zero'" ng-model="vm.selected" value="zero"> There is no crowd (0 people / m^2)<br><br>
+        <input type="checkbox" name="density" ng-checked="selected == 'dangerous'" ng-true-value="'dangerous'" ng-model="vm.selected" value="dangerous"> It is dangerously crowded (>6 people/m^2)<br>
+        <input type="checkbox" name="density" ng-checked="selected == 'crowded'" ng-true-value="'crowded'" ng-model="vm.selected" value="crowded"> It is crowded (5-6 people/m^2)<br>
+        <input type="checkbox" name="density" ng-checked="selected == 'medium'" ng-true-value="'medium'" ng-model="vm.selected" value="medium"> It is medium dense (4 people/m^2)<br>
+        <input type="checkbox" name="density" ng-checked="selected == 'sparse'" ng-true-value="'sparse'" ng-model="vm.selected" value="sparse"> It is a sparse crowd (2 people/m^2)<br>
+        <input type="checkbox" name="density" ng-checked="selected == 'zero'" ng-true-value="'zero'" ng-model="vm.selected" value="zero"> There is no crowd (0 people/m^2)<br><br>
     <h3>Place the square where you think the density is the highest. For moving the square, just click inside the suare and drag it to another position.</h3><br><br>
     <my-square plus2="{{canvas2}}"></my-square><br><br>
     <h3>Decide how difficult it was to answer the question</h3><br>
