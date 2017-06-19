@@ -14,10 +14,6 @@ module.exports.save = function(req, res){
     question.second = req.body.second;
     question.difficulty = req.body.difficulty;
     question.userId = req.body.userID;
-    console.log(question.first);
-    console.log(question.second);
-    console.log(question.difficulty);
-    console.log(question.userId);
 
     switch (count) {
         case 1:

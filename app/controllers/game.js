@@ -20,6 +20,7 @@
         vm.countFirst = "";
         vm.selected = "";
         vm.movement = "";
+        vm.hide = false;
 
         var counter = 0;
 
@@ -42,6 +43,7 @@
                 switch (counter) {
                     case 0:
                         console.log("Bild 1");
+                        vm.hide = true;
                         $scope.menu = 'count';
                         $scope.type = 'single';
                         $scope.image = '../styles/images/AnalyseData/Count1.png';
@@ -319,7 +321,6 @@
                 vm.question.first = vm.countFirst;
                 vm.question.second = "no value";
                 vm.question.userID = $scope.userId;
-                console.log(vm.question.userID);
                 var number = counter;
 
                 dataService
@@ -346,11 +347,6 @@
                 vm.question.second = coords;
                 vm.question.userID = $scope.userId;
                 var number = counter;
-                console.log(vm.question.first);
-                console.log(vm.question.second);
-                console.log(vm.question.difficulty);
-                console.log(vm.question.userID);
-
 
                 dataService
                     .save(vm.question, number)
@@ -374,7 +370,6 @@
                 alert("please fill in all the blanks and draw at least one arrow.");
             } else {
                 var coordsJoined = coords.join();
-                console.log(coordsJoined);
 
                 vm.question.first = chart;
                 vm.question.second = coordsJoined;

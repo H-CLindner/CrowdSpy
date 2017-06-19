@@ -1,10 +1,10 @@
 <nav class="navbar navbar-custom navbar-static-top"> <!-- navbar -->
     <div class="container">
         <div class="navbar-header">
-            <a class="navbar-brand" style="color:#000000" href="/">CrowdSpy</a>
+            <a ng-hide="vm.hide" class="navbar-brand" style="color:#000000" href="/">CrowdSpy</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
+            <ul ng-hide="vm.hide" class="nav navbar-nav">
                 <li class="active"><a href="/game">Game</a></li>
                 <li><a href="/about">About</a> </li>
                 <li><a href="/legalInfo">Legal Information</a> </li>
@@ -15,13 +15,13 @@
 
 <div class="col-lg-12" style="padding-top: 1cm; padding-left: 1cm; padding-right: 1cm; text-align: center" ng-if="type == 'start' && menu == 'start'">
     <h1>Welcome to the Crowdspy Crowdsourcing Application</h1>
-    <h3>Here will follow a nice tutorial and stuff. Click the Button to start!</h3>
+    <h3>If you want to learn more about the project, click on the about tab in the navbar. But first click the Button to start!</h3>
     <button type="submit" class="btn btn-primary" ng-click="procedure()">Ready</button>
 </div>
 
 <div class="col-lg-12" style="padding-top: 1cm; padding-left: 1cm; padding-right: 1cm; text-align: center" ng-if="type == 'end' && menu == 'end'">
     <h1>That was the Crowdspy Crowdsourcing Application</h1>
-    <h3>If its implemented go see the leaderboard. Thank you for your help!</h3>
+    <h3>If you want to learn more about the project, click on the about tab in the navbar. Thank you for your help!</h3>
     <button type="submit" class="btn btn-primary" ng-click="restart()">Restart</button>
 </div>
 
@@ -133,13 +133,12 @@
 <div class="col-md-3" style="padding-left: 1cm; padding-bottom: 1cm" ng-if="menu == 'decision'">
         <h3>Decide in your own opinion how dense the shown crowd is</h3><br>
     <p><b>Selected: {{vm.selected}}</b></p><br>
-        <input type="checkbox" name="density" ng-checked="selected == 'very dense'" ng-true-value="'very dense'" ng-model="vm.selected" value="vdense"> It's very dense (dangerous)<br>
-        <input type="checkbox" name="density" ng-checked="selected == 'dense'" ng-true-value="'dense'" ng-model="vm.selected" value="dense"> It's dense (not dangerous)<br>
-        <input type="checkbox" name="density" ng-checked="selected == 'normal'" ng-true-value="'normal'" ng-model="vm.selected" value="dnormal"> It's normal. (dense but not dangerous)<br>
-        <input type="checkbox" name="density" ng-checked="selected == 'rather light'" ng-true-value="'rather light'" ng-model="vm.selected" value="vnormal"> It's rather light (normal movement possible)<br>
-        <input type="checkbox" name="density" ng-checked="selected == 'light'" ng-true-value="'light'" ng-model="vm.selected" value="light"> It's light (much space between people)<br>
-        <input type="checkbox" name="density" ng-checked="selected == 'very light'" ng-true-value="'very light'" ng-model="vm.selected" value="vlight"> It's very light (almost no people)<br><br>
-    <h3>Place the square where you think the density is the highest</h3><br><br>
+        <input type="checkbox" name="density" ng-checked="selected == 'dangerous'" ng-true-value="'dangerous'" ng-model="vm.selected" value="dangerous"> It is dangerously crowded (>6 people / m^2)<br>
+        <input type="checkbox" name="density" ng-checked="selected == 'crowded'" ng-true-value="'crowded'" ng-model="vm.selected" value="crowded"> It is crowded (5-6 people / m^2)<br>
+        <input type="checkbox" name="density" ng-checked="selected == 'medium'" ng-true-value="'medium'" ng-model="vm.selected" value="medium"> It is medium dense (4 people / m^2)<br>
+        <input type="checkbox" name="density" ng-checked="selected == 'sparse'" ng-true-value="'sparse'" ng-model="vm.selected" value="sparse"> It is a sparse crowd (2 people / m^2)<br>
+        <input type="checkbox" name="density" ng-checked="selected == 'zero'" ng-true-value="'zero'" ng-model="vm.selected" value="zero"> There is no crowd (0 people / m^2)<br><br>
+    <h3>Place the square where you think the density is the highest. For moving the square, just click inside the suare and drag it to another position.</h3><br><br>
     <my-square plus2="{{canvas2}}"></my-square><br><br>
     <h3>Decide how difficult it was to answer the question</h3><br>
     <p><b>Selected: {{vm.question.difficulty}}</b></p><br>
@@ -157,7 +156,7 @@
     <div>
         <my-chart chart-id="chart-1" source="data" type="pie"></my-chart><br>
     </div>
-    <h3>Draw arrows in that position in which the people are going. To draw an arrow, click on the position where the arrow should start and drag it to the position where it should end.</h3><br>
+    <h3>Draw arrows in that position in which the people are going. To draw an arrow, click on the position where the arrow should start and drag it to the position where it should end. You can draw maximum 5 arrows.</h3><br>
     <my-arrow plus={{canvas}} set-fn="setDirectiveFn(theDirFn)" set-fn2="setDirectiveFn2(theDirFn2)"></my-arrow><br>
     <button type="submit" class="btn btn-primary" ng-click="clearCanvas()">Clear All</button>
     <button type="submit" class="btn btn-primary" ng-click="clearArrow()">Clear Last Arrow</button><br>
