@@ -21,120 +21,294 @@ module.exports.save = function(req, res){
             saving(round);
             break;
         case 2:
-            round.question2.push(question);
-            saving(round);
+            Round.findOne({'question1.userId': question.userId}, function (err, obj){
+                if(err){
+                    console.log("something went wrong");
+                }else {
+                    obj.question2.push(question);
+                    saving(obj);
+                }
+            });
             break;
         case 3:
-            round.question3.push(question);
-            saving(round);
+            Round.findOne({'question1.userId': question.userId}, function (err, obj){
+                if(err){
+                    console.log("something went wrong");
+                }else {
+                    obj.question3.push(question);
+                    saving(obj);
+                }
+            });
             break;
         case 4:
-            round.question4.push(question);
-            saving(round);
+            Round.findOne({'question1.userId': question.userId}, function (err, obj){
+                if(err){
+                    console.log("something went wrong");
+                }else {
+                    obj.question4.push(question);
+                    saving(obj);
+                }
+            });
             break;
         case 5:
-            round.question5.push(question);
-            saving(round);
+            Round.findOne({'question1.userId': question.userId}, function (err, obj){
+                if(err){
+                    console.log("something went wrong");
+                }else {
+                    obj.question5.push(question);
+                    saving(obj);
+                }
+            });
             break;
         case 6:
-            round.question6.push(question);
-            saving(round);
+            Round.findOne({'question1.userId': question.userId}, function (err, obj){
+                if(err){
+                    console.log("something went wrong");
+                }else {
+                    obj.question6.push(question);
+                    saving(obj);
+                }
+            });
             break;
         case 7:
-            round.question7.push(question);
-            saving(round);
+            Round.findOne({'question1.userId': question.userId}, function (err, obj){
+                if(err){
+                    console.log("something went wrong");
+                }else {
+                    obj.question7.push(question);
+                    saving(obj);
+                }
+            });
             break;
         case 8:
-            round.question8.push(question);
-            saving(round);
+            Round.findOne({'question1.userId': question.userId}, function (err, obj){
+                if(err){
+                    console.log("something went wrong");
+                }else {
+                    obj.question8.push(question);
+                    saving(obj);
+                }
+            });
             break;
         case 9:
-            round.question9.push(question);
-            saving(round);
+            Round.findOne({'question1.userId': question.userId}, function (err, obj){
+                if(err){
+                    console.log("something went wrong");
+                }else {
+                    obj.question9.push(question);
+                    saving(obj);
+                }
+            });
             break;
         case 10:
-            round.question10.push(question);
-            saving(round);
+            Round.findOne({'question1.userId': question.userId}, function (err, obj){
+                if(err){
+                    console.log("something went wrong");
+                }else {
+                    obj.question10.push(question);
+                    saving(obj);
+                }
+            });
             break;
         case 11:
-            round.question11.push(question);
-            saving(round);
+            Round.findOne({'question1.userId': question.userId}, function (err, obj){
+                if(err){
+                    console.log("something went wrong");
+                }else {
+                    obj.question11.push(question);
+                    saving(obj);
+                }
+            });
             break;
         case 12:
-            round.question12.push(question);
-            saving(round);
+            Round.findOne({'question1.userId': question.userId}, function (err, obj){
+                if(err){
+                    console.log("something went wrong");
+                }else {
+                    obj.question12.push(question);
+                    saving(obj);
+                }
+            });
             break;
         case 13:
-            round.question13.push(question);
-            saving(round);
+            Round.findOne({'question1.userId': question.userId}, function (err, obj){
+                if(err){
+                    console.log("something went wrong");
+                }else {
+                    obj.question13.push(question);
+                    saving(obj);
+                }
+            });
             break;
         case 14:
-            round.question14.push(question);
-            saving(round);
+            Round.findOne({'question1.userId': question.userId}, function (err, obj){
+                if(err){
+                    console.log("something went wrong");
+                }else {
+                    obj.question14.push(question);
+                    saving(obj);
+                }
+            });
             break;
         case 15:
-            round.question15.push(question);
-            saving(round);
+            Round.findOne({'question1.userId': question.userId}, function (err, obj){
+                if(err){
+                    console.log("something went wrong");
+                }else {
+                    obj.question15.push(question);
+                    saving(obj);
+                }
+            });
             break;
         case 16:
-            round.question16.push(question);
-            saving(round);
+            Round.findOne({'question1.userId': question.userId}, function (err, obj){
+                if(err){
+                    console.log("something went wrong");
+                }else {
+                    obj.question16.push(question);
+                    saving(obj);
+                }
+            });
             break;
         case 17:
-            round.question17.push(question);
-            saving(round);
+            Round.findOne({'question1.userId': question.userId}, function (err, obj){
+                if(err){
+                    console.log("something went wrong");
+                }else {
+                    obj.question17.push(question);
+                    saving(obj);
+                }
+            });
             break;
         case 18:
-            round.question18.push(question);
-            saving(round);
+            Round.findOne({'question1.userId': question.userId}, function (err, obj){
+                if(err){
+                    console.log("something went wrong");
+                }else {
+                    obj.question18.push(question);
+                    saving(obj);
+                }
+            });
             break;
         case 19:
-            round.question19.push(question);
-            saving(round);
+            Round.findOne({'question1.userId': question.userId}, function (err, obj){
+                if(err){
+                    console.log("something went wrong");
+                }else {
+                    obj.question19.push(question);
+                    saving(obj);
+                }
+            });
             break;
         case 20:
-            round.question20.push(question);
-            saving(round);
+            Round.findOne({'question1.userId': question.userId}, function (err, obj){
+                if(err){
+                    console.log("something went wrong");
+                }else {
+                    obj.question20.push(question);
+                    saving(obj);
+                }
+            });
             break;
         case 21:
-            round.question21.push(question);
-            saving(round);
+            Round.findOne({'question1.userId': question.userId}, function (err, obj){
+                if(err){
+                    console.log("something went wrong");
+                }else {
+                    obj.question21.push(question);
+                    saving(obj);
+                }
+            });
             break;
         case 22:
-            round.question22.push(question);
-            saving(round);
+            Round.findOne({'question1.userId': question.userId}, function (err, obj){
+                if(err){
+                    console.log("something went wrong");
+                }else {
+                    obj.question22.push(question);
+                    saving(obj);
+                }
+            });
             break;
         case 23:
-            round.question23.push(question);
-            saving(round);
+            Round.findOne({'question1.userId': question.userId}, function (err, obj){
+                if(err){
+                    console.log("something went wrong");
+                }else {
+                    obj.question23.push(question);
+                    saving(obj);
+                }
+            });
             break;
         case 24:
-            round.question24.push(question);
-            saving(round);
+            Round.findOne({'question1.userId': question.userId}, function (err, obj){
+                if(err){
+                    console.log("something went wrong");
+                }else {
+                    obj.question24.push(question);
+                    saving(obj);
+                }
+            });
             break;
         case 25:
-            round.question25.push(question);
-            saving(round);
+            Round.findOne({'question1.userId': question.userId}, function (err, obj){
+                if(err){
+                    console.log("something went wrong");
+                }else {
+                    obj.question25.push(question);
+                    saving(obj);
+                }
+            });
             break;
         case 26:
-            round.question26.push(question);
-            saving(round);
+            Round.findOne({'question1.userId': question.userId}, function (err, obj){
+                if(err){
+                    console.log("something went wrong");
+                }else {
+                    obj.question26.push(question);
+                    saving(obj);
+                }
+            });
             break;
         case 27:
-            round.question27.push(question);
-            saving(round);
+            Round.findOne({'question1.userId': question.userId}, function (err, obj){
+                if(err){
+                    console.log("something went wrong");
+                }else {
+                    obj.question27.push(question);
+                    saving(obj);
+                }
+            });
             break;
         case 28:
-            round.question28.push(question);
-            saving(round);
+            Round.findOne({'question1.userId': question.userId}, function (err, obj){
+                if(err){
+                    console.log("something went wrong");
+                }else {
+                    obj.question28.push(question);
+                    saving(obj);
+                }
+            });
             break;
         case 29:
-            round.question29.push(question);
-            saving(round);
+            Round.findOne({'question1.userId': question.userId}, function (err, obj){
+                if(err){
+                    console.log("something went wrong");
+                }else {
+                    obj.question29.push(question);
+                    saving(obj);
+                }
+            });
             break;
         case 30:
-            round.question30.push(question);
-            saving(round);
+            Round.findOne({'question1.userId': question.userId}, function (err, obj){
+                if(err){
+                    console.log("something went wrong");
+                }else {
+                    obj.question30.push(question);
+                    saving(obj);
+                }
+            });
             break;
     }
 
@@ -152,5 +326,4 @@ module.exports.save = function(req, res){
             }
         });
     }
-
 };

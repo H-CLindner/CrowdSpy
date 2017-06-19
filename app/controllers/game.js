@@ -70,7 +70,7 @@
                         counter++;
                         break;
                     case 3:
-                        console.log("Bild 4");
+                        console.log("Bild 4"); //some reload function to reload the div
                         $scope.menu = 'circle';
                         $scope.type = 'single';
                         $scope.image = '../styles/images/AnalyseData/Direction1/Number1.jpg';
