@@ -13,6 +13,8 @@
     </div>
 </nav>
 
+<h2 style="padding-top: 1cm; padding-left: 1cm; padding-right: 1cm;" ng-hide="vm.show">Image {{vm.info}}</h2>
+
 <div class="col-lg-12" style="padding-top: 1cm; padding-left: 1cm; padding-right: 1cm; text-align: center" ng-if="type == 'start' && menu == 'start'">
     <h1>Welcome to the Crowdspy Crowdsourcing Application</h1>
     <h3>If you want to learn more about the project, click on the about tab in the navbar. But first click the Button to start!</h3>
@@ -22,7 +24,7 @@
 <div class="col-lg-12" style="padding-top: 1cm; padding-left: 1cm; padding-right: 1cm; text-align: center" ng-if="type == 'end' && menu == 'end'">
     <h1>That was the Crowdspy Crowdsourcing Application</h1>
     <h3>If you want to learn more about the project, click on the about tab in the navbar. Thank you for your help!</h3>
-    <button type="submit" class="btn btn-primary" ng-click="restart()">Restart</button>
+    <button type="submit" class="btn btn-primary" ng-click="restart(0)">Restart</button>
 </div>
 
 <div class="col-md-8" style="padding-top: 1cm; padding-left: 1cm; padding-right: 1cm; padding-bottom: 1cm" ng-if="type == 'single'">
@@ -149,7 +151,7 @@
     <button type="submit" class="btn btn-primary" ng-click="decisionSave()">Next</button>
 </div>
 
-<div class="col-md-3" style="padding-left: 1cm; padding-bottom: 1cm;" ng-if="menu == 'circle'">
+<div class="col-md-3" style="padding-left: 1cm; padding-bottom: 1cm;" ng-if="menu == 'circle'" ng-class="flashback">
     <h3>Select that part of the pie chart where you think the people are moving to</h3><br>
     <div>
         <my-chart chart-id="chart-1" source="data" type="pie"></my-chart><br>

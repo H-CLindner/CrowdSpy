@@ -42,7 +42,6 @@
             }
             var uniqueArrows = arrows.filter(onlyUnique);
             arrowCoords = uniqueArrows;
-            console.log(arrowCoords);
         }
 
         function editArrowCoords(type){
@@ -51,7 +50,6 @@
             } else if(type == "single"){
                 arrows.pop();
             }
-            console.log(arrowCoords);
         }
 
         function getArrowCoords(){
