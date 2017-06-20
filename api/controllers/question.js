@@ -8,7 +8,6 @@ module.exports.save = function(req, res){
     var question = new Question();
     var round = new Round();
     var count = parseInt(req.params.count);
-    console.log(count);
 
     question.first = req.body.first;
     question.second = req.body.second;

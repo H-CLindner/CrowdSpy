@@ -9,10 +9,24 @@
                 controller: 'homeCtrl',
                 controllerAs: 'vm'
             })
-            .when('/game', {
+            .when('/game/:id', { //id mitgeben damit seite dann neu geladen wird.
                 templateUrl: 'views/game.html',
                 controller: 'gameCtrl',
-                controllerAs: 'vm'
+                controllerAs: 'vm',
+                resolve: {
+                    myVar: function($route){
+                        console.log("something");
+                        console.log($route.current.params.id);
+                        if($route.current.params.id == "start"){
+                            return "start";
+                        } else {
+                            var number = parseInt($route.current.params.id);
+                            var numberPlus = number + 1;
+                            console.log(numberPlus);
+                            return numberPlus;
+                        }
+                    }
+                }
             })
             .when('/about', {
                 templateUrl: 'views/about.html',
@@ -29,15 +43,7 @@
         // use the HTML5 History API
         $locationProvider.html5Mode(true);
     }
-/*
-    function run($rootScope, $location, authentication) {
-        $rootScope.$on('$routeChangeStart', function(event, nextRoute, currentRoute) {
-            if ($location.path() === '/profile' && !authentication.isLoggedIn()) {
-                $location.path('/');
-            }
-        });
-    }
-*/
+
     angular
         .module('crowdspy')
         .config(['$routeProvider', '$locationProvider', config]);

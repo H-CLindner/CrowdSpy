@@ -10,6 +10,7 @@
         var redPiece = "1";
         var squareCoords = "";
         var arrowCoords = "";
+        var userId = "";
         var arrows = [];
         var ALPHABET = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
         var ID_LENGTH = 8;
@@ -76,6 +77,14 @@
             return rtn;
         };
 
+        function setId(uid){
+            userId = uid;
+        }
+
+        function getId(){
+            return userId;
+        }
+
         return{
             save: save,
             setSquareCoords: setSquareCoords,
@@ -85,7 +94,9 @@
             getArrowCoords: getArrowCoords,
             setChartValue: setChartValue,
             getChartValue: getChartValue,
-            generateId: generateId
+            generateId: generateId,
+            setId: setId,
+            getId: getId
         };
     }
 

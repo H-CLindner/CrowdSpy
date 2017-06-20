@@ -5,7 +5,7 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul ng-hide="vm.hide" class="nav navbar-nav">
-                <li class="active"><a href="/game">Game</a></li>
+                <li class="active"><a href="/game/0">Game</a></li>
                 <li><a href="/about">About</a> </li>
                 <li><a href="/legalInfo">Legal Information</a> </li>
             </ul>
@@ -18,7 +18,7 @@
 <div class="col-lg-12" style="padding-top: 1cm; padding-left: 1cm; padding-right: 1cm; text-align: center" ng-if="type == 'start' && menu == 'start'">
     <h1>Welcome to the Crowdspy Crowdsourcing Application</h1>
     <h3>If you want to learn more about the project, click on the about tab in the navbar. But first click the Button to start!</h3>
-    <button type="submit" class="btn btn-primary" ng-click="procedure()">Ready</button>
+    <a href="/game/-1"><button type="submit" class="btn btn-primary">Ready</button></a>
 </div>
 
 <div class="col-lg-12" style="padding-top: 1cm; padding-left: 1cm; padding-right: 1cm; text-align: center" ng-if="type == 'end' && menu == 'end'">
