@@ -20,6 +20,7 @@
         vm.countFirst = "";
         vm.selected = "";
         vm.movement = "";
+        vm.opinion = "";
         vm.hide = false;
         vm.show = true;
         vm.info = "";
@@ -50,12 +51,11 @@
             if(counter == undefined){
                 console.log("alles in ordnung");
             }else {
-                console.log("ich bin hier");
                 $location.path('/game/' + counter);
+                window.scrollTo(0,0);
             }
         };
 
-        //$scope.procedure = function() {
                 switch (counter) {
                     case 0:
                         vm.show = false;
@@ -380,7 +380,6 @@
                         counter++;
                         break;
                 }
-       // };
 
         $scope.restart = function() {
             $location.path('/game/start');
@@ -437,6 +436,7 @@
         $scope.circleSave = function(){
 
             var coords = dataService.getArrowCoords();
+            dataService.editArrowCoords("all");
 
             var chart = dataService.getChartValue();
 
@@ -464,12 +464,12 @@
 
         $scope.movementSave = function(){
 
-            if(vm.movement == "" || vm.question.difficulty == ""){
+            if(vm.movement == "" || vm.opinion || vm.question.difficulty == ""){
                 alert("please fill in all the blanks.");
             } else {
 
                 vm.question.first = vm.movement;
-                vm.question.second = "no value";
+                vm.question.second = vm.opinion;
                 vm.question.userID = $scope.userId;
                 var number = counter + 1;
 

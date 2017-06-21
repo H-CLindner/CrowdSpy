@@ -17,13 +17,13 @@
 
 <div class="col-lg-12" style="padding-top: 1cm; padding-left: 1cm; padding-right: 1cm; text-align: center" ng-if="type == 'start' && menu == 'start'">
     <h1>Welcome to the Crowdspy Crowdsourcing Application</h1>
-    <h3>If you want to learn more about the project, click on the about tab in the navbar. But first click the Button to start!</h3>
+    <h3>If you want to learn more about the project, click on the about tab in the navbar. Some advises when you go through the application: Please don't click the back button of your browser so that your data can be saved properly. Please read the texts in the green boxes to know what you should do. If you then still don't know what to do write me an e-mail. But now click the Button to start!</h3>
     <a href="/game/-1"><button type="submit" class="btn btn-primary">Ready</button></a>
 </div>
 
 <div class="col-lg-12" style="padding-top: 1cm; padding-left: 1cm; padding-right: 1cm; text-align: center" ng-if="type == 'end' && menu == 'end'">
     <h1>That was the Crowdspy Crowdsourcing Application</h1>
-    <h3>If you want to learn more about the project, click on the about tab in the navbar. Thank you for your help!</h3>
+    <h3>If you want to learn more about the project, click on the about tab in the navbar. Thank you for your time and help!</h3>
     <button type="submit" class="btn btn-primary" ng-click="restart(0)">Restart</button>
 </div>
 
@@ -175,6 +175,11 @@
     <p><b>Selected: {{vm.movement}}</b></p><br>
     <input type="checkbox" name="movement" ng-checked="movement == 'moving'" ng-true-value="'moving'" ng-model="vm.movement" value="moving"> Crowd is moving<br>
     <input type="checkbox" name="movement" ng-checked="movement == 'static'" ng-true-value="'static'" ng-model="vm.movement" value="static"> Crowd is static<br>
+    <h3>In the image you see a structure to guide the people to the buses. Decide in your own opinion if this structure is helpful to deescalate the situation, is not helpful or makes no difference at all.</h3><br>
+    <p><b>Selected: {{vm.opinion}}</b></p><br>
+    <input type="checkbox" name="opinion" ng-checked="opinion == 'helpful'" ng-true-value="'helpful'" ng-model="vm.opinion" value="helpful"> It is helpful<br>
+    <input type="checkbox" name="opinion" ng-checked="opinion == 'nonhelpful'" ng-true-value="'nonhelpful'" ng-model="vm.opinion" value="nonhelpful"> It is not helpful<br>
+    <input type="checkbox" name="opinion" ng-checked="opinion == 'nodifference'" ng-true-value="'nodifference'" ng-model="vm.opinion" value="nodifference"> It makes no difference<br>
     <h3>Decide how difficult it was to answer the question</h3><br>
     <p><b>Selected: {{vm.question.difficulty}}</b></p><br>
     <input type="checkbox" name="difficulty" ng-checked="difficulty == 'very hard'" ng-true-value="'very hard'" ng-model="vm.question.difficulty" value="vhard"> It was very hard<br>

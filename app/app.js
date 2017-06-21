@@ -9,7 +9,7 @@
                 controller: 'homeCtrl',
                 controllerAs: 'vm'
             })
-            .when('/game/:id', { //id mitgeben damit seite dann neu geladen wird.
+            .when('/game/:id', {
                 templateUrl: 'views/game.html',
                 controller: 'gameCtrl',
                 controllerAs: 'vm',
@@ -22,7 +22,6 @@
                         } else {
                             var number = parseInt($route.current.params.id);
                             var numberPlus = number + 1;
-                            console.log(numberPlus);
                             return numberPlus;
                         }
                     }
