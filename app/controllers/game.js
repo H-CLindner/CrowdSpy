@@ -68,16 +68,17 @@
                         dataService.setId($scope.userId);
                         break;
                     case 1:
+                        $scope.canvas2 = '../styles/images/AnalyseData/Density1.png';
                         vm.show = false;
                         vm.hide = true;
                         vm.info = "2 of 30: Single Image, Density";
-                        $scope.canvas2 = '../styles/images/AnalyseData/Density1.png';
                         $scope.menu = 'decision';
                         $scope.type = 'single';
                         $scope.image = '../styles/images/AnalyseData/Density1.png';
                         $scope.userId = dataService.getId();
                         break;
                     case 2:
+                        $scope.canvas = '../styles/images/AnalyseData/Direction1/Number1.jpg';
                         vm.show = false;
                         vm.hide = true;
                         vm.info = "3 of 30: Five Images Carousel, Direction";
@@ -88,20 +89,20 @@
                         $scope.dir3 = '../styles/images/AnalyseData/Direction1/Number3.jpg';
                         $scope.dir4 = '../styles/images/AnalyseData/Direction1/Number4.jpg';
                         $scope.dir5 = '../styles/images/AnalyseData/Direction1/Number5.jpg';
-                        $scope.canvas = '../styles/images/AnalyseData/Direction1/Number1.jpg';
                         $scope.userId = dataService.getId();
                         break;
                     case 3:
+                        $scope.canvas = '../styles/images/AnalyseData/Direction1/Number1.jpg';
                         vm.show = false;
                         vm.hide = true;
                         vm.info = "4 of 30: Single Image, Direction";
                         $scope.menu = 'circle';
                         $scope.type = 'single';
                         $scope.image = '../styles/images/AnalyseData/Direction1/Number1.jpg';
-                        $scope.canvas = '../styles/images/AnalyseData/Direction1/Number1.jpg';
                         $scope.userId = dataService.getId();
                         break;
                     case 4:
+                        $scope.canvas = '../styles/images/AnalyseData/Direction1/Number1.jpg';
                         vm.show = false;
                         vm.hide = true;
                         vm.info = "5 of 30: Juxtapose Slider, Direction";
@@ -109,17 +110,16 @@
                         $scope.type = 'juxtapose';
                         $scope.jux1 = '../styles/images/AnalyseData/Direction1/Number1.jpg';
                         $scope.jux2 = '../styles/images/AnalyseData/Direction1/Number2.jpg';
-                        $scope.canvas = '../styles/images/AnalyseData/Direction1/Number1.jpg';
                         $scope.userId = dataService.getId();
                         break;
                     case 5:
+                        $scope.canvas = '../styles/images/AnalyseData/Direction1/Number1.jpg';
                         vm.show = false;
                         vm.hide = true;
                         vm.info = "6 of 30: Gif, Direction";
                         $scope.menu = 'circle';
                         $scope.type = 'single';
                         $scope.image = '../styles/images/AnalyseData/Direction1/Dir1.gif';
-                        $scope.canvas = '../styles/images/AnalyseData/Direction1/Number1.jpg';
                         $scope.userId = dataService.getId();
                         break;
                     case 6:
@@ -132,16 +132,17 @@
                         $scope.userId = dataService.getId();
                         break;
                     case 7:
+                        $scope.canvas2 = '../styles/images/AnalyseData/Density2.png';
                         vm.show = false;
                         vm.hide = true;
                         vm.info = "8 of 30: Single Image, Density";
-                        $scope.canvas2 = '../styles/images/AnalyseData/Density2.png';
                         $scope.menu = 'decision';
                         $scope.type = 'single';
                         $scope.image = '../styles/images/AnalyseData/Density2.png';
                         $scope.userId = dataService.getId();
                         break;
                     case 8:
+                        $scope.canvas = '../styles/images/AnalyseData/Direction3/Number1.jpg';
                         vm.show = false;
                         vm.hide = true;
                         vm.info = "9 of 30: Five Images Carousel, Direction";
@@ -152,20 +153,20 @@
                         $scope.dir3 = '../styles/images/AnalyseData/Direction3/Number3.jpg';
                         $scope.dir4 = '../styles/images/AnalyseData/Direction3/Number4.jpg';
                         $scope.dir5 = '../styles/images/AnalyseData/Direction3/Number5.jpg';
-                        $scope.canvas = '../styles/images/AnalyseData/Direction3/Number1.jpg';
                         $scope.userId = dataService.getId();
                         break;
                     case 9:
+                        $scope.canvas = '../styles/images/AnalyseData/Direction3/Number1.jpg';
                         vm.show = false;
                         vm.hide = true;
                         vm.info = "10 of 30: Single Image, Direction";
                         $scope.menu = 'circle';
                         $scope.type = 'single';
                         $scope.image = '../styles/images/AnalyseData/Direction3/Number1.jpg';
-                        $scope.canvas = '../styles/images/AnalyseData/Direction3/Number1.jpg';
                         $scope.userId = dataService.getId();
                         break;
                     case 10:
+                        $scope.canvas = '../styles/images/AnalyseData/Direction3/Number1.jpg';
                         vm.show = false;
                         vm.hide = true;
                         vm.info = "11 of 30: Juxtapose Slider, Direction";
@@ -173,17 +174,16 @@
                         $scope.type = 'juxtapose';
                         $scope.jux1 = '../styles/images/AnalyseData/Direction3/Number1.jpg';
                         $scope.jux2 = '../styles/images/AnalyseData/Direction3/Number2.jpg';
-                        $scope.canvas = '../styles/images/AnalyseData/Direction3/Number1.jpg';
                         $scope.userId = dataService.getId();
                         break;
                     case 11:
+                        $scope.canvas = '../styles/images/AnalyseData/Direction3/Number1.jpg';
                         vm.show = false;
                         vm.hide = true;
                         vm.info = "12 of 30: Gif, Direction";
                         $scope.menu = 'circle';
                         $scope.type = 'single';
                         $scope.image = '../styles/images/AnalyseData/Direction3/Dir3.gif';
-                        $scope.canvas = '../styles/images/AnalyseData/Direction3/Number1.jpg';
                         $scope.userId = dataService.getId();
                         break;
                     case 12:
@@ -196,16 +196,17 @@
                         $scope.userId = dataService.getId();
                         break;
                     case 13:
+                        $scope.canvas2 = '../styles/images/AnalyseData/Density3.png';
                         vm.show = false;
                         vm.hide = true;
                         vm.info = "14 of 30: Single Image, Density";
-                        $scope.canvas2 = '../styles/images/AnalyseData/Density3.png';
                         $scope.menu = 'decision';
                         $scope.type = 'single';
                         $scope.image = '../styles/images/AnalyseData/Density3.png';
                         $scope.userId = dataService.getId();
                         break;
                     case 14:
+                        $scope.canvas = '../styles/images/AnalyseData/Direction2/Number1.jpg';
                         vm.show = false;
                         vm.hide = true;
                         vm.info = "15 of 30: Five Images Carousel, Direction";
@@ -216,20 +217,20 @@
                         $scope.dir3 = '../styles/images/AnalyseData/Direction2/Number3.jpg';
                         $scope.dir4 = '../styles/images/AnalyseData/Direction2/Number4.jpg';
                         $scope.dir5 = '../styles/images/AnalyseData/Direction2/Number5.jpg';
-                        $scope.canvas = '../styles/images/AnalyseData/Direction2/Number1.jpg';
                         $scope.userId = dataService.getId();
                         break;
                     case 15:
+                        $scope.canvas = '../styles/images/AnalyseData/Direction2/Number1.jpg';
                         vm.show = false;
                         vm.hide = true;
                         vm.info = "16 of 30: Single Image, Direction";
                         $scope.menu = 'circle';
                         $scope.type = 'single';
                         $scope.image = '../styles/images/AnalyseData/Direction2/Number1.jpg';
-                        $scope.canvas = '../styles/images/AnalyseData/Direction2/Number1.jpg';
                         $scope.userId = dataService.getId();
                         break;
                     case 16:
+                        $scope.canvas = '../styles/images/AnalyseData/Direction2/Number1.jpg';
                         vm.show = false;
                         vm.hide = true;
                         vm.info = "17 of 30: Juxtapose Slider, Direction";
@@ -237,17 +238,16 @@
                         $scope.type = 'juxtapose';
                         $scope.jux1 = '../styles/images/AnalyseData/Direction2/Number1.jpg';
                         $scope.jux2 = '../styles/images/AnalyseData/Direction2/Number2.jpg';
-                        $scope.canvas = '../styles/images/AnalyseData/Direction2/Number1.jpg';
                         $scope.userId = dataService.getId();
                         break;
                     case 17:
+                        $scope.canvas = '../styles/images/AnalyseData/Direction2/Number1.jpg';
                         vm.show = false;
                         vm.hide = true;
                         vm.info = "18 of 30: Gif, Direction";
                         $scope.menu = 'circle';
                         $scope.type = 'single';
                         $scope.image = '../styles/images/AnalyseData/Direction2/Dir2.gif';
-                        $scope.canvas = '../styles/images/AnalyseData/Direction2/Number1.jpg';
                         $scope.userId = dataService.getId();
                         break;
                     case 18:
@@ -260,16 +260,17 @@
                         $scope.userId = dataService.getId();
                         break;
                     case 19:
+                        $scope.canvas2 = '../styles/images/AnalyseData/Density4.png';
                         vm.show = false;
                         vm.hide = true;
                         vm.info = "20 of 30: Single Image, Density";
-                        $scope.canvas2 = '../styles/images/AnalyseData/Density4.png';
                         $scope.menu = 'decision';
                         $scope.type = 'single';
                         $scope.image = '../styles/images/AnalyseData/Density4.png';
                         $scope.userId = dataService.getId();
                         break;
                     case 20:
+                        $scope.canvas = '../styles/images/AnalyseData/Direction4/Number1.jpg';
                         vm.show = false;
                         vm.hide = true;
                         vm.info = "21 of 30: Five Images Carousel, Direction";
@@ -280,20 +281,20 @@
                         $scope.dir3 = '../styles/images/AnalyseData/Direction4/Number3.jpg';
                         $scope.dir4 = '../styles/images/AnalyseData/Direction4/Number4.jpg';
                         $scope.dir5 = '../styles/images/AnalyseData/Direction4/Number5.jpg';
-                        $scope.canvas = '../styles/images/AnalyseData/Direction4/Number1.jpg';
                         $scope.userId = dataService.getId();
                         break;
                     case 21:
+                        $scope.canvas = '../styles/images/AnalyseData/Direction4/Number1.jpg';
                         vm.show = false;
                         vm.hide = true;
                         vm.info = "22 of 30: Single Image, Direction";
                         $scope.menu = 'circle';
                         $scope.type = 'single';
                         $scope.image = '../styles/images/AnalyseData/Direction4/Number1.jpg';
-                        $scope.canvas = '../styles/images/AnalyseData/Direction4/Number1.jpg';
                         $scope.userId = dataService.getId();
                         break;
                     case 22:
+                        $scope.canvas = '../styles/images/AnalyseData/Direction4/Number1.jpg';
                         vm.show = false;
                         vm.hide = true;
                         vm.info = "23 of 30: Juxtapose Slider, Direction";
@@ -301,17 +302,16 @@
                         $scope.type = 'juxtapose';
                         $scope.jux1 = '../styles/images/AnalyseData/Direction4/Number1.jpg';
                         $scope.jux2 = '../styles/images/AnalyseData/Direction4/Number2.jpg';
-                        $scope.canvas = '../styles/images/AnalyseData/Direction4/Number1.jpg';
                         $scope.userId = dataService.getId();
                         break;
                     case 23:
+                        $scope.canvas = '../styles/images/AnalyseData/Direction4/Number1.jpg';
                         vm.show = false;
                         vm.hide = true;
                         vm.info = "24 of 30: Gif, Direction";
                         $scope.menu = 'circle';
                         $scope.type = 'single';
                         $scope.image = '../styles/images/AnalyseData/Direction4/Dir4.gif';
-                        $scope.canvas = '../styles/images/AnalyseData/Direction4/Number1.jpg';
                         $scope.userId = dataService.getId();
                         break;
                     case 24:
@@ -324,10 +324,10 @@
                         $scope.userId = dataService.getId();
                         break;
                     case 25:
+                        $scope.canvas2 = '../styles/images/AnalyseData/Density5.png';
                         vm.show = false;
                         vm.hide = true;
                         vm.info = "26 of 30: Single Image, Density";
-                        $scope.canvas2 = '../styles/images/AnalyseData/Density5.png';
                         $scope.menu = 'decision';
                         $scope.type = 'single';
                         $scope.image = '../styles/images/AnalyseData/Density5.png';
