@@ -117,11 +117,10 @@
 
 <div class="col-md-3" style="padding-left: 1cm; padding-bottom: 1cm" ng-if="menu == 'count'">
     <form>
-        <h3>Type in how many people you see in the red box in the picture.</h3><br>
+        <h3>Type in how many people you see in the red box in the picture (If you can't decide how many people there are just guess it).</h3><br>
         <input type="number" name="count" ng-model="vm.countFirst"><br><br>
-        <h3>If you can't decide how many people there are just guess it.</h3><br>
     </form>
-    <h3>Decide how difficult it was to answer the question</h3><br>
+    <h3>Decide how difficult it was to answer the question (if it is the same situation decide it with regard to the way the data is prepared).</h3><br>
     <p><b>Selected: {{vm.question.difficulty}}</b></p><br>
     <input type="checkbox" name="difficulty" ng-checked="difficulty == 'very hard'" ng-true-value="'very hard'" ng-model="vm.question.difficulty" value="vhard"> It was very hard<br>
     <input type="checkbox" name="difficulty" ng-checked="difficulty == 'hard'" ng-true-value="'hard'" ng-model="vm.question.difficulty" value="hard"> It was hard<br>
@@ -132,16 +131,16 @@
 </div>
 
 <div class="col-md-3" style="padding-left: 1cm; padding-bottom: 1cm" ng-if="menu == 'decision'">
-        <h3>Decide in your own opinion how dense the shown crowd is</h3><br>
+        <h3>Decide in your own opinion how dense the crowd in the shown image is.</h3><br>
     <p><b>Selected: {{vm.selected}}</b></p><br>
         <input type="checkbox" name="density" ng-checked="selected == 'dangerous'" ng-true-value="'dangerous'" ng-model="vm.selected" value="dangerous"> It is dangerously crowded (>6 people/m^2)<br>
         <input type="checkbox" name="density" ng-checked="selected == 'crowded'" ng-true-value="'crowded'" ng-model="vm.selected" value="crowded"> It is crowded (5-6 people/m^2)<br>
         <input type="checkbox" name="density" ng-checked="selected == 'medium'" ng-true-value="'medium'" ng-model="vm.selected" value="medium"> It is medium dense (4 people/m^2)<br>
         <input type="checkbox" name="density" ng-checked="selected == 'sparse'" ng-true-value="'sparse'" ng-model="vm.selected" value="sparse"> It is a sparse crowd (2 people/m^2)<br>
         <input type="checkbox" name="density" ng-checked="selected == 'zero'" ng-true-value="'zero'" ng-model="vm.selected" value="zero"> There is no crowd (0 people/m^2)<br><br>
-    <h3>Place the square where you think the density is the highest. For moving the square, just click inside the suare and drag it to another position.</h3><br><br>
+    <h3>Place the square where you think the density is the highest. For moving the square, just click inside the square and drag it to another position.</h3><br><br>
     <my-square plus2="{{canvas2}}"></my-square><br><br>
-    <h3>Decide how difficult it was to answer the question</h3><br>
+    <h3>Decide how difficult it was to answer the question (if it is the same situation decide it with regard to the way the data is prepared).</h3><br>
     <p><b>Selected: {{vm.question.difficulty}}</b></p><br>
     <input type="checkbox" name="difficulty" ng-checked="difficulty == 'very hard'" ng-true-value="'very hard'" ng-model="vm.question.difficulty" value="vhard"> It was very hard<br>
     <input type="checkbox" name="difficulty" ng-checked="difficulty == 'hard'" ng-true-value="'hard'" ng-model="vm.question.difficulty" value="hard"> It was hard<br>
@@ -152,15 +151,15 @@
 </div>
 
 <div class="col-md-3" style="padding-left: 1cm; padding-bottom: 1cm;" ng-if="menu == 'circle'" ng-class="flashback">
-    <h3>Select that part of the pie chart where you think the people are moving to</h3><br>
+    <h3>Select that part of the pie chart where you think the people are moving to. If the people move to different directions select the part where the most people are moving to.</h3><br>
     <div>
         <my-chart chart-id="chart-1" source="data" type="pie"></my-chart><br>
     </div>
-    <h3>Draw arrows in that position in which the people are going. To draw an arrow, click on the position where the arrow should start and drag it to the position where it should end. You can draw maximum 5 arrows.</h3><br>
+    <h3>Draw arrows in that position in which the people are going. To draw an arrow, click on the position where the arrow should start and drag it to the position where it should end. You can draw maximum 5 arrows. If the people move to different directions the arrows can point to different directions.</h3><br>
     <my-arrow plus={{canvas}} set-fn="setDirectiveFn(theDirFn)" set-fn2="setDirectiveFn2(theDirFn2)"></my-arrow><br>
     <button type="submit" class="btn btn-primary" ng-click="clearCanvas()">Clear All</button>
     <button type="submit" class="btn btn-primary" ng-click="clearArrow()">Clear Last Arrow</button><br>
-    <h3>Decide how difficult it was to answer the question</h3><br>
+    <h3>Decide how difficult it was to answer the question (if it is the same situation decide it with regard to the way the data is prepared).</h3><br>
     <p><b>Selected: {{vm.question.difficulty}}</b></p><br>
     <input type="checkbox" name="difficulty" ng-checked="difficulty == 'very hard'" ng-true-value="'very hard'" ng-model="vm.question.difficulty" value="vhard"> It was very hard<br>
     <input type="checkbox" name="difficulty" ng-checked="difficulty == 'hard'" ng-true-value="'hard'" ng-model="vm.question.difficulty" value="hard"> It was hard<br>
@@ -171,7 +170,7 @@
 </div>
 
 <div class="col-md-3" style="padding-left: 1cm; padding-bottom: 1cm" ng-if="menu == 'movement'">
-    <h3>Decide if the crowd is moving or not</h3><br>
+    <h3>Decide if the crowd is moving or not.</h3><br>
     <p><b>Selected: {{vm.movement}}</b></p><br>
     <input type="checkbox" name="movement" ng-checked="movement == 'moving'" ng-true-value="'moving'" ng-model="vm.movement" value="moving"> Crowd is moving<br>
     <input type="checkbox" name="movement" ng-checked="movement == 'static'" ng-true-value="'static'" ng-model="vm.movement" value="static"> Crowd is static<br>
@@ -180,7 +179,7 @@
     <input type="checkbox" name="opinion" ng-checked="opinion == 'helpful'" ng-true-value="'helpful'" ng-model="vm.opinion" value="helpful"> It is helpful<br>
     <input type="checkbox" name="opinion" ng-checked="opinion == 'nonhelpful'" ng-true-value="'nonhelpful'" ng-model="vm.opinion" value="nonhelpful"> It is not helpful<br>
     <input type="checkbox" name="opinion" ng-checked="opinion == 'nodifference'" ng-true-value="'nodifference'" ng-model="vm.opinion" value="nodifference"> It makes no difference<br>
-    <h3>Decide how difficult it was to answer the question</h3><br>
+    <h3>Decide how difficult it was to answer the question (if it is the same situation decide it with regard to the way the data is prepared).</h3><br>
     <p><b>Selected: {{vm.question.difficulty}}</b></p><br>
     <input type="checkbox" name="difficulty" ng-checked="difficulty == 'very hard'" ng-true-value="'very hard'" ng-model="vm.question.difficulty" value="vhard"> It was very hard<br>
     <input type="checkbox" name="difficulty" ng-checked="difficulty == 'hard'" ng-true-value="'hard'" ng-model="vm.question.difficulty" value="hard"> It was hard<br>
