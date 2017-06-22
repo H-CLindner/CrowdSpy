@@ -27,7 +27,6 @@
         $scope.myVar = myVar;
 
         var counter = parseInt($scope.myVar);
-        console.log(counter);
 
         $scope.image = '../styles/images/menschenmenge.jpg';
         $scope.single = "";
@@ -47,7 +46,6 @@
         }
 
         $scope.procedure = function(){
-            console.log("something");
             if(counter == undefined){
                 console.log("alles in ordnung");
             }else {
