@@ -464,7 +464,7 @@
 
         $scope.movementSave = function(){
 
-            if(vm.movement == "" || vm.opinion || vm.question.difficulty == ""){
+            if(vm.movement == "" || vm.opinion == "" || vm.question.difficulty == ""){
                 alert("please fill in all the blanks.");
             } else {
 

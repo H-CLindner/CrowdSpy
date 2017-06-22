@@ -170,8 +170,10 @@
                                     function initialise() {
                                         var image = new Image();
                                         image.src = scope.plus2;
-                                        ctx.drawImage(image, 0, 0, 300, 300);
-                                        drawShapes();
+                                        image.onload = function() {
+                                            ctx.drawImage(image, 0, 0, 300, 300);
+                                            drawShapes();
+                                        }
                                     }
 
                                 }
